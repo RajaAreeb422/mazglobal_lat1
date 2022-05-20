@@ -10,7 +10,7 @@ import AboutUs from '../components/AboutUs'
 import CustomNav from '../components/CustomNav'
 import Navbar from '../components/Navbar'
 import st from  '../styles/feature.module.css'
-import ComingSoon from "react-coming-soon";
+//import ComingSoon from "react-coming-soon";
 
 // import Backtotop from '../components/Backtotop'
 

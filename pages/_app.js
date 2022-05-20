@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import ComingSoon from "react-coming-soon";
+//import ComingSoon from "react-coming-soon";
 import Image from "next/image";
 // import Preloader from "./components/Preloader/Preloader";
 // import Timer from "./components/Countdown/Timer";
