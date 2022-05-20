@@ -27,7 +27,7 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <div className={st.cmng}>
+      {/* <div className={st.cmng}>
       
       <center><Image style={{cursor:'pointer',paddingTop:'20px',paddingLeft:'0px'}}  height='120px' width='180px' src='/white_logo.png'/></center>
      
@@ -38,8 +38,8 @@ export default function Home() {
       textColor="#000"
       illustration="development"
     />
-    </div> 
-    {/* <Navbar2/>
+    </div>  */}
+<Navbar2/>
     <Navbar/>
     
     <Slider/>
@@ -52,7 +52,7 @@ export default function Home() {
   
     </div>
     <Footer/>  
-   */}
+   
     </>
       )
 }
