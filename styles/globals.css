@@ -157,3 +157,6 @@ header {
   background: #000;
   border-radius: 100px;
 }
+.cmng{
+  background-image:url('https://react-coming-soon.maksv.me/default-image.jpeg');
+}

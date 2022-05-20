@@ -9,9 +9,6 @@ import FeaturedProducts from '../components/FeaturesProducts/FeaturedProducts'
 import AboutUs from '../components/AboutUs'
 import CustomNav from '../components/CustomNav'
 import Navbar from '../components/Navbar'
-import st from  '../styles/feature.module.css'
-import ComingSoon from "react-coming-soon";
-
 // import Backtotop from '../components/Backtotop'
 
 export default function Home() {
@@ -27,19 +24,7 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <div className={st.cmng}>
-      
-      <center><Image style={{cursor:'pointer',paddingTop:'20px',paddingLeft:'0px'}}  height='120px' width='180px' src='/white_logo.png'/></center>
-     
-  
-  <ComingSoon
-      image='https://react-coming-soon.maksv.me/default-image.jpeg'
-      bgColor="#fff"
-      textColor="#000"
-      illustration="development"
-    />
-    </div> 
-    {/* <Navbar2/>
+    <Navbar2/>
     <Navbar/>
     
     <Slider/>
@@ -49,10 +34,10 @@ export default function Home() {
       </div>
     <AboutUs/>
     <div style={{marginTop:'40px',marginBottom:'40px',textAlign:'center'}}>
-  
+    {/* <h2 style={{fontWeight:'500'}}>COMPANY OVERVIEW</h2> */}
     </div>
     <Footer/>  
-   */}
+    {/* <Backtotop/> */}
     </>
       )
 }

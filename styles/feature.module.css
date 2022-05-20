@@ -44,3 +44,7 @@
         transition-delay: 0.3s ease;
         box-shadow: 0 2px 2px rgb(11 25 28 / 10%);
     }
+    .cmng{
+        background-image:url('https://react-coming-soon.maksv.me/default-image.jpeg');
+     
+      }
