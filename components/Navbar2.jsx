@@ -67,7 +67,13 @@ const Navbar2 = () => {
      
     })
     if(status==false)
-    errortoggle()
+    {
+    // errortoggle()
+    router.push(
+      { pathname: "/products", query: { part: part } }
+     
+    );
+    }
   }
   // const [blist, setBlist] = useState(false);
   // const [loggedIn, setloggedIn] = useState("");
@@ -176,7 +182,7 @@ const Navbar2 = () => {
             info@mazglobal.com
           </p>
           <TextField
-          style={{marginLeft:'auto',marginRight:'200px',paddingLeft:'8px', fontFamily: "'Montserrat', sans-serif"}}
+          style={{marginLeft:'auto',marginTop:'4px',background:'white',height:'30px',marginRight:'200px',paddingLeft:'8px', fontFamily: "'Montserrat', sans-serif"}}
           className={nav.Search}
           onChange={ (event) => setPart(event.target.value) }
           

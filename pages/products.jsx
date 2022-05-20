@@ -10,6 +10,7 @@ import { HomeOutlined, Category } from "@material-ui/icons";
 import Navbar from "../components/Navbar";
 import SideBar from "../components/SideBar";
 import axios from "axios";
+import router from 'next/router';
 //import Pagination from '@material-ui/lab/Pagination';
 
 const Products = () => {
@@ -117,10 +118,19 @@ const Products = () => {
   ]);
   useEffect(() => {
     
+
+    let p=router.query.part;
     axios.get(`https://mazglobal.co.uk/maz-api/products`)//api url
     .then(resp =>{//calling url by method GET
           console.log('alll prooo',resp.data.data)
+             if(router.query.part==''|| router.query.part==undefined)
+             {
              setSizeProduct(resp.data.data)
+             }
+             else
+             {
+             setSizeProduct([])
+             }
          }).catch(err=>console.log(err))
     // const config = {
     //     headers: {
@@ -187,10 +197,15 @@ const Products = () => {
         <div style={{ marginTop: "55px" }}>
           <Productshow>
             {/* spro.length==0?<> Sorry No items to show</>: */}
+            {spro.length==0?<h3>No Result Found</h3>:
+            <>
             {spro.map((item,i) => (
               <SingleProduct item={item}  key={item.id} />
             ))}
+            </>
+}
           </Productshow>
+            
         </div>
         {/* <Pagination style={{marginLeft:'600px',marginRight:'100px'}}count={10} page={page} onChange={handlePageChange}/>
             <Footer /> */}

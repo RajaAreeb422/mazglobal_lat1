@@ -85,11 +85,17 @@ const search=()=>{
     {
      
       products.map(pr=>{
-        if(pr==state.part_no)
+        if(pr.part_no==state.part_no)
         {
          router.push(`/productdescp/${pr.id}`)
         }
       })
+    
+        router.push(
+          { pathname: "/products", query: { part: state.part_no } }
+         
+        );
+      
     }
     else if(state.part_no!='' && state.catg!=null && state.vh==null )
     {
@@ -144,6 +150,7 @@ const search=()=>{
           console.log("vh",pr.vehicle_id)
           router.push(`/vehicle/${pr.vehicle_id}`)
         }
+      
       })
     }
     else (state.part_no!='' && state.catg==null && state.vh!=null)

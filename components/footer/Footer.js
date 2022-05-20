@@ -53,8 +53,8 @@ return (
 			<Heading >Contact Us</Heading>
 			<FootLink href="#"><WhatsApp/>  <P>+44 (0)20 86542 7567</P></FootLink>
 			<FootLink href="#"><Phone/>    <P>+44 (0)20 86542 7567</P></FootLink>
-			<FootLink href="#"><Email/>     <P>customercare@mazglobal.pk</P> </FootLink>
-			<FootLink ><LocationCity  /> <P> 1963 Street 63 Phase 3 Bahria Town Rawalpindi  </P></FootLink>
+			<FootLink href="#"><Email/>     <P>contact@mazglobal.pk</P> </FootLink>
+			<FootLink ><LocationCity  /> <P> UK  </P></FootLink>
 			
 						
 		</Column>

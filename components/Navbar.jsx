@@ -36,7 +36,7 @@ const Navbar = () => {
         list1.push({
           id:lt.id,
           title:lt.name,
-          
+         
         })
       }
       else{

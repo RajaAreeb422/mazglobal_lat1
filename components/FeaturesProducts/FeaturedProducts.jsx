@@ -9,9 +9,20 @@ import { useRouter } from 'next/router';
 import { DeleteOutline, Edit } from '@material-ui/icons';
 import { Icon } from "@material-ui/core";
 import ic from '../../styles/feature.module.css'
+import axios from 'axios';
+import ASlide from "./ASlide";
 const FeaturedProducts = () => {
-
+  const [spro,setSizeProduct]=useState([])
   useEffect(() => {
+
+    
+    
+    axios.get(`https://mazglobal.co.uk/maz-api/products`)//api url
+    .then(resp =>{//calling url by method GET
+          console.log('alll prooo',resp.data.data)
+            
+             setSizeProduct(resp.data.data)
+         }).catch(err=>console.log(err))
     // alert('Finished loading');
   }, []);
   const [box, setBox] = useState([
@@ -79,15 +90,18 @@ const FeaturedProducts = () => {
       >
         
           <p className={ic.h4} style={{marginTop:'30px',marginBottom:'20px'}}>Featured Products</p>
+           {spro.length!=0?
 
+          <ASlide deal={spro} /> :''
+}
           <Carousel style={{ width: "360px", }} show={5} slide={1} swiping={true} leftArrow={<Deals_ItemLeft/>} rightArrow={<Deals_ItemRight/>}>
-              {box.map((it,key) => (
+              {spro.map((it,key) => (
                 <Link key={key} href="/category/[id]" as={`/category/${it.id}`}>
                   <div className={ic.imgDiv}>
-                  <img src={it.img} height='150px' width='150px' style={{margin:'10px',border:'0.095rem solid lightgrey'}}/>
+                  <img src={it.path} height='150px' width='150px' style={{margin:'10px',border:'0.095rem solid lightgrey'}}/>
                   {/* <p style={{ marginLeft:'20px',color:'rgba(16, 103, 138, 0.933)',fontSize:'20px' }}>{it.price} PKR</p> */}
-                  <h5 style={{ marginLeft:'10px',fontSize:'16px',fontWeight:'320' }}>{it.text}</h5>
-                  <p style={{ marginLeft:'10px',color:'grey' }}>Incl. VAT : <strong>400 Rs</strong></p>
+                  <h5 style={{ marginLeft:'10px',fontSize:'16px',fontWeight:'320' }}>{it.name}</h5>
+                  <p style={{ marginLeft:'10px',color:'grey' }}>Incl. VAT : <strong>{it.regular_price}Rs</strong></p>
                   </div>
               
               </Link>

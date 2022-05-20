@@ -224,8 +224,8 @@ const ProductDesp = () => {
   });
   
   const columns = [
-    { key: 'name', name: 'Name',width:70},
-    { key: 'descp', name: 'Description',width:900 }
+    { key: 'name', name: 'Name'},
+    { key: 'descp', name: 'Description', }
   ];
   
   const rows = [
@@ -268,14 +268,14 @@ const ProductDesp = () => {
           <h5 style={{fontWeight:'500',fontSize:'14px'}}>Part Code :</h5> 
           <p style={{marginTop:'24px',marginLeft:'4px',fontWeight:'500',fontSize:'14px'}} > {item.part_no}</p> 
           </div>
-          <div style={{display:'flex',flexDirection:'row',fontWeight:'200',marginTop:'-10px'}}>
+          <div style={{display:'flex',flexDirection:'row',fontWeight:'500',marginTop:'-10px'}}>
           <h5 style={{fontWeight:'200',fontSize:'12px'}}>OEM Part Number:</h5> 
-          <p style={{marginTop:'20px',marginLeft:'4px',fontWeight:'200',fontSize:'12px'}}> {item.oem_no} </p>
+          <p style={{marginTop:'20px',marginLeft:'4px',fontWeight:'400',fontSize:'12px'}}> {item.oem_no} </p>
           </div>
 
-          <div style={{display:'flex',flexDirection:'row',fontWeight:'200',marginTop:'-10px'}}>
+          <div style={{display:'flex',flexDirection:'row',fontWeight:'500',marginTop:'-10px'}}>
           <h5 style={{fontWeight:'200',fontSize:'12px'}}>Application:</h5> 
-          <p style={{marginTop:'20px',marginLeft:'4px',fontWeight:'200',width:'300px',fontSize:'12px'}}>{item.application} </p>
+          <p style={{marginTop:'20px',marginLeft:'4px',fontWeight:'400',width:'300px',fontSize:'12px'}}>{item.application} </p>
           </div>
           {/* <div style={{display:'flex',flexDirection:'row',fontWeight:'200'}}>
           <LocationCity/>
