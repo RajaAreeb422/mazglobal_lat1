@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { ArrowLeftOutlined, ArrowRightOutlined ,Category,LocationCity,CropSquare,List,SearchOutlined} from "@material-ui/icons";
 import { useEffect, useState } from "react";
 
-import { useRouter } from "next/router";
+
 import React, { memo } from "react";
 
 import { Modal, ModalBody, ModalFooter, ModalHeader,Table } from "reactstrap";
@@ -18,6 +18,9 @@ import { toast, ToastContainer } from 'react-nextjs-toast';
 import Link from "next/link";
 import Head from "next/head";
 import DataGrid from 'react-data-grid';
+// import { RouterTwoTone } from "@material-ui/icons";
+// import { Router } from "@material-ui/icons";
+import router, { useRouter } from "next/router";
 const SideBar = () => {
 
     const [state, setState] = useState({
@@ -39,7 +42,7 @@ const SideBar = () => {
   ]);
 
 
-  const [item, setItem] = useState({});
+  const [products, setProducts] = useState([]);
   
   useEffect(() => {
 //     axios.get(`http://localhost:8080/maz-api/products/${id}`)
@@ -47,6 +50,12 @@ const SideBar = () => {
 //       console.log('maz',res.data.data)
 //       setItem(res.data.data)
 //    })
+
+   axios.get(`https://mazglobal.co.uk/maz-api/products`)
+    .then(res => {
+      console.log('maz',res.data.data)
+      setProducts(res.data.data)
+   })
     
    axios.get(`https://mazglobal.co.uk/maz-api/categories`)
     .then(res => {
@@ -65,30 +74,87 @@ const SideBar = () => {
   
 
    const handleChange = name => e => {
+     console.log("e",e.target.value)
     setState({...state,
         [name]:e.target.value
     })
 }
 
 const search=()=>{
-    if(state.part_no==''||state.catg==null || state.vh==null)
+    if(state.part_no!=''&& state.catg==null && state.vh==null)
     {
-        toast.notify(`Please Select All the fields! Try Again`, {
-            type: 'error',
-          });
-    }
-    else{
-        axios.get(`https://mazglobal.co.uk/maz-api/products/search`,
+     
+      products.map(pr=>{
+        if(pr==state.part_no)
         {
-        params: {
-            part_no: state.part_no,
-            cat_id:state.catg,
-            vehicle_id:state.vh
-          },
+         router.push(`/productdescp/${pr.id}`)
         }
-        ).then(resp=>{
-          console.log("data",resp.data.data)  
-        }).catch(err=>console.log(err))
+      })
+    }
+    else if(state.part_no!='' && state.catg!=null && state.vh==null )
+    {
+
+      products.map(pr=>{
+        if(pr.part_no==state.part_no && pr.category_id==state.catg)
+        {
+           router.push(`/productdescp/${pr.id}`)
+        }
+      })
+        
+    }
+    else if(state.part_no!='' && state.catg!=null && state.vh!=null)
+    {
+      products.map(pr=>{
+        if(pr.part_no==state.part_no && pr.category_id==state.catg && pr.vehicle_id==state.vh)
+        {
+           router.push(`/productdescp/${pr.id}`)
+        }
+      }) 
+    }
+    else if(state.part_no==''&& state.catg!=null && state.vh==null)
+    {
+      console.log("helllooooo")
+      products.map(pr=>{
+        console.log("cat",pr.category_id)
+        console.log("state",state.catg)
+        if(pr.category_id==state.catg)
+        {
+          console.log("helllooooo 22")
+           router.push(`/category/${state.catg}`)
+        }
+      })
+    }
+    else if(state.part_no=='' && state.catg!=null && state.vh!=null )
+    {
+      products.map(pr=>{
+        if(pr.vehicle-id==state.vh && pr.category_id==state.catg)
+        {
+           router.push()
+        }
+      })
+    }
+    else if(state.part_no=='' && state.catg==null && state.vh!=null)
+    {
+      products.map(pr=>{
+        console.log("vehicleee")
+        console.log("vh",pr.vehicle_id)
+        console.log("state",state.vh)
+        if( pr.vehicle_id==state.vh)
+        {
+          console.log("vh",pr.vehicle_id)
+          router.push(`/vehicle/${pr.vehicle_id}`)
+        }
+      })
+    }
+    else (state.part_no!='' && state.catg==null && state.vh!=null)
+    {
+      products.map(pr=>{
+        console.log("vhh")
+        if(pr.part_no==state.part_no && pr.vehicle_id==state.vh)
+        {
+           router.push(`/productdescp/${pr.id}`)
+        }
+      })
     }
 }
 
@@ -148,7 +214,7 @@ const search=()=>{
                 <FilterTitle>Search</FilterTitle>
               </Bar>
               <hr width="247px" style={{ marginTop: "-2px" }} />
-              <FilterText>Product Search</FilterText>
+              <FilterText>Part No</FilterText>
               <input
                 type="text"
                 name='part_no'
@@ -168,7 +234,7 @@ const search=()=>{
                   marginTop: "10px",
                 }}
               />
-              <FilterText>Product Categories</FilterText>
+              <FilterText> Categories</FilterText>
               <select
                name='catg'
                onChange={handleChange('catg')}
@@ -212,8 +278,8 @@ const search=()=>{
                   marginTop: "10px",
                 }}
               >
-                {vehicle.map(vh=>(
-                   <option key={vh.id} value={vh.id}>{vh.name}</option>
+                {vehicle.map(vhic=>(
+                   <option key={vhic.id} value={vhic.id}>{vhic.name}</option>
                 ))}
                 <option value=''>Select Vehicle</option>
                 
