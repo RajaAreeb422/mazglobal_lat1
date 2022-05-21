@@ -14,7 +14,7 @@ import React, { memo } from "react";
 //import { useLocation } from "react-router";
 // import { publicRequest } from "../requestMethods";
 //import { useDispatch, useSelector } from 'react-redux';
-import { Modal, ModalBody, ModalFooter, ModalHeader,Table } from "reactstrap";
+import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 //import { Carousel } from 'react-responsive-carousel';
 import router from "next/router";
 //import {toast} from 'react-toastify';
@@ -22,6 +22,7 @@ import router from "next/router";
 //toast.configure()
 import ImageMagnifier from "./ImageMagnifier";
 import axios from "axios";
+import Head from 'next/head'
 //import Pagination from '@material-ui/lab/Pagination';
 
 import Related from '../../../components/FeaturesProducts/Related'
@@ -33,6 +34,8 @@ import Link from "next/link";
 import Navbar from "../../../components/Navbar";
 import DataGrid from 'react-data-grid';
 import SideBar from "../../../components/SideBar";
+import Table from 'react-bootstrap/Table'
+import 'bootstrap/dist/css/bootstrap.min.css';
 const ProductDesp = () => {
   const [cat, setCat] = useState([]);
   const [vehicle, setVehicles] = useState([]);
@@ -163,6 +166,7 @@ const ProductDesp = () => {
     img: "https://www.ks-international.com/media/catalog/product/cache/d3609febb2c99e7862c5859e894847cb/0/7/0704176-web_1.webp",
   })
   const [item, setItem] = useState({});
+  const [nproducts, setProductsN] = useState({});
   const router = useRouter();
   const { id } = router.query;
 
@@ -176,6 +180,9 @@ const ProductDesp = () => {
   //   }
   // };
   useEffect(() => {
+
+    
+   
     axios.get(`https://mazglobal.co.uk/maz-api/products/${id}`)
     .then(res => {
       console.log('maz',res.data.data)
@@ -186,19 +193,19 @@ const ProductDesp = () => {
     path1=path1+res.data.data.images[0];
     console.log("path",path1);
     setPath(path1);
-   })
+   }).catch(err=>console.log(err))
     
    axios.get(`https://mazglobal.co.uk/maz-api/categories`)
     .then(res => {
       console.log('maz',res.data.data)
       setCat(res.data.data)
-   })
+   }).catch(err=>console.log(err))
    
    axios.get(`https://mazglobal.co.uk/maz-api/vehicles`)
    .then(res => {
      console.log('maz',res.data.data)
      setVehicles(res.data.data)
-  })
+  }).catch(err=>console.log(err))
 
 
    },[])
@@ -225,22 +232,29 @@ const ProductDesp = () => {
   
   const columns = [
     { key: 'name', name: 'Name'},
-    { key: 'descp', name: 'Description', }
+    { key: 'descp', name: 'Description'}
   ];
   
   const rows = [
     { name: 'Product Name', descp: `${item.name}` },
   
     { name: 'Maz No', descp: `${item.part_no}` },
-    { name: 'OEM No', descp: `${item.oem_no}` },
+    { name: 'OEM No', descp: `${item.oem_no}` }
     
-    { name: 'Cross Ref', descp: `${item.application}` },
    
-    { name: 'Description', descp:`${item.product_description}` },
 
   ];
   return (
     <>
+     <Head>
+        <title>Product Description</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com"  />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
     <Navbar2/>
     <Navbar/>
     <img src='https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg' width='100%'/>
@@ -269,14 +283,11 @@ const ProductDesp = () => {
           <p style={{marginTop:'24px',marginLeft:'4px',fontWeight:'500',fontSize:'14px'}} > {item.part_no}</p> 
           </div>
           <div style={{display:'flex',flexDirection:'row',fontWeight:'500',marginTop:'-10px'}}>
-          <h5 style={{fontWeight:'200',fontSize:'12px'}}>OEM Part Number:</h5> 
+          <h5 style={{fontWeight:'500',fontSize:'12px'}}>OEM Part Number:</h5> 
           <p style={{marginTop:'20px',marginLeft:'4px',fontWeight:'400',fontSize:'12px'}}> {item.oem_no} </p>
           </div>
 
-          <div style={{display:'flex',flexDirection:'row',fontWeight:'500',marginTop:'-10px'}}>
-          <h5 style={{fontWeight:'200',fontSize:'12px'}}>Application:</h5> 
-          <p style={{marginTop:'20px',marginLeft:'4px',fontWeight:'400',width:'300px',fontSize:'12px'}}>{item.application} </p>
-          </div>
+         
           {/* <div style={{display:'flex',flexDirection:'row',fontWeight:'200'}}>
           <LocationCity/>
           <p style={{marginTop:'20px',marginLeft:'4px',color:'black',fontWeight:'200'}}> 642909  , 1934912  , 268759  , 8235-S4630220200 </p>
@@ -291,21 +302,62 @@ const ProductDesp = () => {
 
 
       <MainDiv>
-         <div style={{background:'rgba(16, 103, 138, 0.933)' ,padding:'1px',width:'160px'}}>
+         <div style={{background:'rgba(16, 103, 138, 0.933)' ,padding:'4px',width:'160px'}}>
           <h5 style={{color:'white',textAlign:'center'}}>DESCRIPTION</h5>
          </div> 
-         <hr width='830px'  style={{color:'rgba(16, 103, 138, 0.933)',height:'2px',marginTop:'-2px'}}/>
+        
          <SmallDiv>
-         <div style={{background:'whitesmoke' ,padding:'1px',width:'100px'}}>
-          <h5 style={{textAlign:'center'}} >DETAILS</h5>
-         </div> 
+     
          <hr width='800px'  style={{color:'grey',height:'2px',marginTop:'-2px'}}/> 
-         <DataGrid columns={columns} rows={rows} />
+     
+        
+         <Table striped bordered hover style={{border:'0.095rem solid lightgrey',paddingTop:'20px'}}>
+                 <thead>
+    <tr>
+      
+      <th>Name</th>
+      <th>Description</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      
+      <td>Product Name</td>
+      <td>{item.name}</td>
+      
+    </tr>
+    <tr>
+     
+      <td>Maz No</td>
+      <td>{item.part_no}</td>
+      
+    </tr>
+    <tr>
+      
+      <td>OEM No</td>
+      <td>{item.oem_no}</td>
+      
+    </tr>
+    <tr>
+    
+      <td>Specifications</td>
+      <td>{item.product_description}</td>
+      
+    </tr>
+    <tr>
+  
+      <td>Cross Reference</td>
+      <td>{item.application}</td>
+      
+    </tr>
+  </tbody>
+  </Table>
          </SmallDiv> 
 
         </MainDiv>
         <MainDiv>
-         <div style={{background:'rgba(16, 103, 138, 0.933)' ,padding:'1px',width:'160px'}}>
+         <div style={{background:'rgba(16, 103, 138, 0.933)' ,padding:'4px',width:'160px'}}>
           <h5 style={{color:'white',textAlign:'center'}}>INQUIRY US</h5>
          </div> 
          <hr width='850px'  style={{color:'rgba(16, 103, 138, 0.933)',height:'2px',marginTop:'-2px'}}/>
@@ -322,7 +374,8 @@ const ProductDesp = () => {
 
       
     </Container>
-    <Related />
+     <Related  />
+ 
       <Footer /> 
     </>
     
@@ -471,6 +524,7 @@ const SmallDiv = styled.div`
   width:800px;
   margin-bottom:30px;
   margin-left:auto;
+ 
   margin-right:auto;
 `;
 const P = styled.p`
@@ -533,8 +587,6 @@ const Container = styled.div`
   flex-direction: row;
   flex-wrap:wrap;
   
-  
-  margin-right: auto;
 `;
 
 const Wrapper = styled.div`

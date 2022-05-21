@@ -29,18 +29,18 @@ const ASlide = (props) => {
         let list=[]
         
        
-        let path1="https://mazglobal.co.uk/maz-api/";
+        // let path1="https://mazglobal.co.uk/maz-api/";
       
       
-        props.deal.map(it=>{
-          let pp=''
-          pp=path1+it.path
-          list.push(pp)
-          console.log("path22",pp)
+        // props.deal.map(it=>{
+        //   let pp=''
+        //   it['path']=path1+it.path
+        //   list.push(it.path)
+        //   console.log("path22",pp)
         
         
-        })
-        setPath(list)
+        // })
+        // setPath(list)
            
   }, [])
 
@@ -54,7 +54,7 @@ const ASlide = (props) => {
               {props.deal.map((it,key) => (
                 <Link key={key} href="/productdescp/[id]" as={`/productdescp/${it.id}`}>
                   <div className={ic.imgDiv}>
-                  <img src={path[key]} height='150px' width='150px' style={{margin:'10px',border:'0.095rem solid lightgrey'}}/>
+                  <img src={it.path} height='150px' width='150px' style={{margin:'10px',border:'0.095rem solid lightgrey'}}/>
                   {/* <p style={{ marginLeft:'20px',color:'rgba(16, 103, 138, 0.933)',fontSize:'20px' }}>{it.price} PKR</p> */}
                   <h5 style={{ marginLeft:'10px',fontSize:'16px',fontWeight:'320' }}>{it.name}</h5>
                   <p style={{ marginLeft:'10px',color:'grey' }}>Incl. VAT : <strong>{it.regular_price}Rs</strong></p>

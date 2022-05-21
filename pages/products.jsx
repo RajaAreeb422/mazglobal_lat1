@@ -11,6 +11,7 @@ import Navbar from "../components/Navbar";
 import SideBar from "../components/SideBar";
 import axios from "axios";
 import router from 'next/router';
+import Head from 'next/head';
 //import Pagination from '@material-ui/lab/Pagination';
 
 const Products = () => {
@@ -186,6 +187,15 @@ const Products = () => {
   }
   return (
     <>
+       <Head>
+        <title>Product Description</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com"  />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <Navbar2 />
       <Navbar />
       <img

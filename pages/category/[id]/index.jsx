@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import Head from 'next/head'
 import Navbar2 from "../../../components/Navbar2";
 //import Navbar1 from "../components/Navbar1";
 import Footer from "../../../components/footer/Footer";
@@ -133,6 +133,15 @@ const Index = () => {
   }
   return (
     <>
+    <Head>
+        <title>Category</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com"  />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <Navbar2/>
       <Navbar/>
       <img src='https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg' width='100%'/>

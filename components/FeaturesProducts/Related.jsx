@@ -12,13 +12,25 @@ import ic from '../../styles/feature.module.css'
 import axios from 'axios';
 import ASlide from "./ASlide";
 const Related = () => {
-  const [spro,setSizeProduct]=useState([])
+  const [products,setProducts]=useState([])
   useEffect(() => {
+   
     axios.get(`https://mazglobal.co.uk/maz-api/products`)//api url
     .then(resp =>{//calling url by method GET
           console.log('alll prooo',resp.data.data)
-            
-             setSizeProduct(resp.data.data)
+          let path1="https://mazglobal.co.uk/maz-api/";
+      
+          let list=[]
+          resp.data.data.map(it=>{
+            let pp=''
+            it['path']=path1+it.path
+            list.push(it.path)
+            console.log("path22",pp)
+          
+          
+          })
+          
+             setProducts(resp.data.data)
          }).catch(err=>console.log(err))
     // alert('Finished loading');
   }, []);
@@ -89,9 +101,9 @@ const Related = () => {
         
           <p className={ic.h4} style={{marginTop:'30px',marginBottom:'20px'}}>Related Products</p>
 
-          {spro.length!=0?
+          {products.length!=0?
 
-<ASlide deal={spro} /> :''
+           <ASlide deal={products} /> :''
 }
      
       </div>

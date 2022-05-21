@@ -10,12 +10,35 @@ import AboutUs from '../components/AboutUs'
 import CustomNav from '../components/CustomNav'
 import Navbar from '../components/Navbar'
 import st from  '../styles/feature.module.css'
+import { useState, useEffect } from "react";
 //import ComingSoon from "react-coming-soon";
 
 // import Backtotop from '../components/Backtotop'
-
+import axios from 'axios'
 export default function Home() {
 
+  const [products,setProducts]=useState([])
+  useEffect(() => {
+
+    axios.get(`https://mazglobal.co.uk/maz-api/products`)//api url
+    .then(resp =>{//calling url by method GET
+          console.log('alll prooo',resp.data.data)
+          let path1="https://mazglobal.co.uk/maz-api/";
+      
+          let list=[]
+          resp.data.data.map(it=>{
+            let pp=''
+            it['path']=path1+it.path
+            list.push(it.path)
+            console.log("path22",pp)
+          
+          
+          })
+          
+             setProducts(resp.data.data)
+         }).catch(err=>console.log(err))
+    // alert('Finished loading');
+  }, []);
   return (
     <>
      <Head>
@@ -44,7 +67,8 @@ export default function Home() {
     
     <Slider/>
     <Mission/>
-    <FeaturedProducts/>
+    {products.length!=0?<FeaturedProducts products={products}/>:''}
+    
     <div style={{marginTop:'40px'}}>
       </div>
     <AboutUs/>

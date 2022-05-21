@@ -7,7 +7,7 @@ import Slider from '../components/Slider'
 import Mission from '../components/Mission'
 import FeaturedProducts from '../components/FeaturesProducts/FeaturedProducts'
 import AboutUs from '../components/AboutUs'
-import CustomNav from '../components/CustomNav'
+
 import Navbar from '../components/Navbar'
 // import Backtotop from '../components/Backtotop'
 
@@ -29,7 +29,7 @@ export default function Home() {
     
     <Slider/>
     <Mission/>
-    <FeaturedProducts/>
+    {/* <FeaturedProducts/> */}
     <div style={{marginTop:'40px'}}>
       </div>
     <AboutUs/>
