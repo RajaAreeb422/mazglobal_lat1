@@ -154,12 +154,12 @@ const Navbar2 = () => {
       <div className={nav.Wrapper}>
         <div className={nav.Topbar}>
      
-
+         
          <PhoneOutlined
            style={{color:'rgba(16, 103, 138, 0.933)', marginTop: "9px", marginLeft: "140px", fontWeight: "300" }}
            width="25px"
            height="25px"
-        
+           className={nav.hide}
          />
           <p
             style={{
@@ -175,6 +175,7 @@ const Navbar2 = () => {
           <EmailOutlined 
           style={{color:'rgba(16, 103, 138, 0.933)', marginTop: "9px", marginLeft: "50px", fontWeight: "300" }}
           width="25px"
+          className={nav.hide}
           height="25px"/>
           <p style={{ marginTop: "9px",
               marginLeft: "10px",

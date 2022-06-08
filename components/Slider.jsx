@@ -40,15 +40,16 @@ const Slider = () => {
     //               </div>
                   
     //           </Carousel>
-    <div style={{marginBottom:'60px'}}>
+    <div style={{marginBottom:'60px',width:'100%'}}>
     <Carousel>
       <Carousel>
-  <Carousel.Item interval={5000}>
+  <Carousel.Item interval={5000} >
     <img
       className="d-block w-100"
       
       src="./maz2.jpeg"
       alt="First slide"
+     
     />
     
   </Carousel.Item>

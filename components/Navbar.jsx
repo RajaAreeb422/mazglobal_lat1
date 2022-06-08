@@ -19,10 +19,12 @@ import axios from "axios";
 
 import { menuItems } from "./menuItems";
 import Menu from "./Menu";
+import MobileMenu from "./MobileMenu";
 import Carosel from "./Carosel";
 import nav from "../styles/navbar.module.css";
 const Navbar = () => {
   const [cat,setCat]=useState([]);
+  const [isNavExpanded, setIsNavExpanded] = useState(false)
   useEffect(() => {
     let list=[];
     let list1=[]
@@ -82,10 +84,10 @@ const Navbar = () => {
  return (
    <>
    
-  <nav style={{display:'flex',flexDirection:'row',height:'105px'}} className={nav.stick}>
+  <nav className={nav.stick}>
   <Link href="/" as={`/`}>
        <div style={{marginLeft:'160px',marginTop:'-6px'}}>
-        <Image style={{cursor:'pointer'}}  height='120px' width='180px' src='/Maz Global Logo-02.png'/>
+        <Image style={{cursor:'pointer'}}  height='120px' width='150px' src='/Maz Global Logo-02.png'/>
         </div>
         </Link>
    <ul className="menus" style={{marginLeft:'auto'}}>
@@ -97,6 +99,52 @@ const Navbar = () => {
      </>
     ))}
    </ul>
+  </nav>
+
+  <nav >
+    <div className={nav.stick2}>
+       <div>
+       <Link href="/" as={`/`}>
+       <div >
+        <Image style={{cursor:'pointer'}}  height='80px' width='100px' src='/Maz Global Logo-02.png'/>
+        </div>
+        </Link>
+        </div>
+        
+        
+        <button className={nav.hamburger}  onClick={() => {
+          setIsNavExpanded(!isNavExpanded);
+        }}>
+       
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="white"
+        >
+          <path
+            fillRule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+            clipRule="evenodd"
+          />
+        </svg>
+       
+      </button>
+</div>
+
+
+{isNavExpanded? 
+<ul style={{width:'100%',padding:'0'}}>
+    <hr  style={{marginTop:'-10px',marginBottom:'-7px'}}/>
+    {menuItems.map((menu, index) => (
+      <div key={index} style={{height:'50px'}}>
+     <MobileMenu className={nav.mlist} items={menu} depthLevel={depthLevel}/>
+     <hr />
+     </div>
+    ))}
+   </ul>:''
+}
+   
   </nav>
   </>
  );

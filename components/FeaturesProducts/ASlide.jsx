@@ -49,8 +49,9 @@ const ASlide = (props) => {
   return (
     <>
 
-          
-          <Carousel style={{ width: "360px", }} show={5} slide={1} swiping={true} leftArrow={<Deals_ItemLeft/>} rightArrow={<Deals_ItemRight/>}>
+          <div className={ic.largeView}>
+          <Carousel style={{ width: "360px", }}  show={5} slide={1} swiping={true} leftArrow={<Deals_ItemLeft/>} 
+          rightArrow={<Deals_ItemRight/>}>
               {props.deal.map((it,key) => (
                 <Link key={key} href="/productdescp/[id]" as={`/productdescp/${it.id}`}>
                   <div className={ic.imgDiv}>
@@ -61,12 +62,28 @@ const ASlide = (props) => {
                   </div>
               
               </Link>
-                
-               
-          
+            
               ))}
           </Carousel>
-         
+          </div>
+
+          <div className={ic.mobileView}>
+          {/* <Carousel style={{width:'100%'}}  show={2} slide={1} swiping={true} leftArrow={<Deals_ItemLeft/>} 
+          rightArrow={<Deals_ItemRight/>}> */}
+              {props.deal.map((it,key) => (
+                <Link key={key} href="/productdescp/[id]" as={`/productdescp/${it.id}`}>
+                  <div className={ic.imgDiv}>
+                  <img src={it.path} height='130px' width='150px' style={{margin:'10px'}}/>
+                  {/* <p style={{ marginLeft:'20px',color:'rgba(16, 103, 138, 0.933)',fontSize:'20px' }}>{it.price} PKR</p> */}
+                  <h5 style={{ marginLeft:'10px',fontSize:'16px',fontWeight:'320' }}>{it.name}</h5>
+                  <p style={{ marginLeft:'10px',color:'grey' }}>Incl. VAT : <strong>{it.regular_price}Rs</strong></p>
+                  </div>
+              
+              </Link>
+            
+              ))}
+          {/* </Carousel> */}
+          </div>
       
     </>
   );

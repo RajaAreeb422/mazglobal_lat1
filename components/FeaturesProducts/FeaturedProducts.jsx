@@ -89,7 +89,7 @@ const FeaturedProducts = ({products}) => {
         }}
       >
         
-          <p className={ic.h4} style={{marginTop:'30px',marginBottom:'20px'}}>Featured Products</p>
+          <p className={ic.h4} style={{marginTop:'30px',marginBottom:'20px',textAlign:'center'}}>Featured Products</p>
            
 
           <ASlide deal={products} /> 

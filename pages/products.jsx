@@ -186,7 +186,7 @@ const Products = () => {
     //     setSizeProduct(cl)
   }
   return (
-    <>
+    <MContainer>
        <Head>
         <title>Product Description</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -196,11 +196,11 @@ const Products = () => {
           rel="stylesheet"
         />
       </Head>
-      <Navbar2 />
-      <Navbar />
+      <Navbar2/>
+      <Navbar/>
       <img
         src="https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg"
-        width="100%"
+        style={{width:'100%'}}
       />
       <Container>
         <SideBar/>
@@ -221,12 +221,16 @@ const Products = () => {
             <Footer /> */}
       </Container>
       <Footer />
-    </>
+    </MContainer>
   );
 };
 
 export default Products;
 
+
+const MContainer = styled.div`
+
+`;
 const Title = styled.h1`
   margin: 20px;
   text-align: center;
@@ -345,6 +349,17 @@ const Productshow = styled.div`
   border: 0.095rem ridge lightgrey;
   flex-direction: row;
   flex-wrap: wrap;
+
+  @media (max-width: 700px) {
+  display: flex;
+  flex-direction: row;
+	flex-wrap:wrap;
+	margin-left: auto;
+  margin-right: auto;
+  width:100%;
+  padding:4px;
+  margin-right:0px;
+}
   
 `;
 
@@ -354,5 +369,6 @@ const Container = styled.div`
   
   margin-left: auto;
   margin-right: auto;
+ 
 `;
 

@@ -148,12 +148,12 @@ const Services = () => {
     <>
       <Navbar2/>
       <Navbar/>
-      <img src='https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg' width='100%'/>
+      <img src='https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg' style={{width:'100%'}}/>
       <Container>
        
-       <div style={{ marginLeft:'75px'}}>
+       <Div style={{ marginLeft:'75px'}}>
       <SideBar/>
-      </div>
+      </Div>
         <div style={{ marginTop:'55px'}}>
           <Productshow>
             <H >Services</H>
@@ -193,6 +193,18 @@ const Services = () => {
 
 export default Services;
 
+
+const Div=styled.div`
+  margin-left:75px;
+  @media (max-width: 700px) {
+    margin-left:0px;
+
+}
+@media (max-width: 300px) {
+  margin-left:0px;
+  
+}
+`
 const Title = styled.h1`
   margin: 20px;
   text-align: center;
@@ -327,15 +339,37 @@ const Productshow = styled.div`
   
   flex-direction: column;
   flex-wrap: wrap;
+  @media (max-width: 700px) {
+   width:90%;
+  margin:10px;
+  margin-left:auto;
+  margin-right:auto;
+}
+@media (max-width: 300px) {
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
   
+  
+}
 `;
 
 const Container = styled.div`
 display:flex;
 flex-direction:row;
-
- 
   margin-left: auto;
   margin-right: auto;
+  @media (max-width: 700px) {
+    display: flex;
+  flex-direction: column;
+  margin:0px;
+
+}
+@media (max-width: 300px) {
+  display: flex;
+  flex-direction: column;
+  
+}
+  
 `;
 

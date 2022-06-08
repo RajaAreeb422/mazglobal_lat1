@@ -29,7 +29,7 @@ const SingleProduct = ({ item}) => {
         {/* <h5>{item.name}</h5>
         <p>{item.part}</p> */}
 
-        <Image src={path}  width='170px'/>
+        <Image src={path}  width='150px'/>
         <p style={{textAlign:'center',fontSize:'13px',fontWeight:'200'}}>{item.name}</p>
         {/* <p> Sku : {item.sku}</p>
         <p>Price: {item.price}</p>
@@ -92,6 +92,16 @@ const Container = styled.div`
   &:hover ${Info} {
     opacity: 1;
   }
+  @media (max-width: 700px) {
+  width:180px;
+  margin-left:auto;
+  margin-right:auto;
+}
+@media (max-width: 410px) {
+  width:280px;
+  margin-left:auto;
+  margin-right:auto;
+}
 `;
 
 const Circle = styled.div`
@@ -112,8 +122,16 @@ const PriceCol = styled.div`
 
 const Image = styled.img`
   height: 200px;
+  width:170px;
   align-items: center;
   margin:12px;
+
+  @media (max-width: 700px) {
+  width:150px;
+}
+@media (max-width: 410px) {
+  width:260px;
+}
   //width:200px;
 `;
 

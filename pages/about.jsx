@@ -149,12 +149,12 @@ const About = () => {
       <Navbar />
       <img
         src="https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg"
-        width="100%"
+        style={{width:'100%'}}
       />
       <Container>
-        <div style={{marginLeft:'50px'}}>
+        <Div >
       <SideBar/>
-      </div>
+      </Div>
         <div style={{ marginTop: "55px" }}>
           <Productshow>
             <h2 >About Us</h2>
@@ -214,6 +214,18 @@ const About = () => {
 
 export default About;
 
+
+const Div= styled.h1`
+  margin-left:50px;
+  @media (max-width: 700px) {
+   margin:20px;
+}
+@media (max-width: 300px) {
+  margin:20px;
+  
+}
+
+`;
 const Title = styled.h1`
   margin: 20px;
   text-align: center;
@@ -337,6 +349,15 @@ const Productshow = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (max-width: 700px) {
+   margin:20px;
+   width:90%;
+}
+@media (max-width: 300px) {
+  margin:20px;
+  width:90%;
+  
+}
 `;
 
 const Container = styled.div`
@@ -344,4 +365,14 @@ const Container = styled.div`
   flex-direction: row;
   margin-left: auto;
   margin-right: auto;
+  @media (max-width: 700px) {
+    display: flex;
+  flex-direction: column;
+}
+@media (max-width: 300px) {
+  display: flex;
+  flex-direction: column;
+  
+}
+
 `;

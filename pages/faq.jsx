@@ -24,7 +24,7 @@ const Faq = () => {
       <Navbar />
       <img
         src="https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg"
-        width="100%"
+        style={{width:'100%'}}
       />
       <Container>
         <div style={{ marginLeft: "72px" }}>
@@ -259,6 +259,13 @@ const Productshow = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (max-width: 700px) {
+    width:90%;
+}
+@media (max-width: 300px) {
+  width:90%;
+  
+}
 `;
 
 const Container = styled.div`
@@ -268,4 +275,13 @@ const Container = styled.div`
   
   margin-left: auto;
   margin-right: auto;
+  @media (max-width: 700px) {
+    display: flex;
+  flex-direction: column;
+}
+@media (max-width: 300px) {
+  display: flex;
+  flex-direction: column;
+  
+}
 `;

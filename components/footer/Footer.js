@@ -51,6 +51,7 @@ return (
 			<FooterLink href="#">Mumbai</FooterLink> */}
 
 			<Heading >Contact Us</Heading>
+			
 			<FootLink href="#"><WhatsApp/>  <P>+44 (0)20 86542 7567</P></FootLink>
 			<FootLink href="#"><Phone/>    <P>+44 (0)20 86542 7567</P></FootLink>
 			<FootLink href="#"><Email/>     <P>contact@mazglobal.co.uk</P> </FootLink>

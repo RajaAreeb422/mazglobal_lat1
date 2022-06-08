@@ -3,7 +3,12 @@ import styled from "styled-components";
 import Carousel from "../../../components/Carosel";
 import Navbar2 from "../../../components/Navbar2";
 import Footer from "../../../components/footer/Footer";
-import { ArrowLeftOutlined, ArrowRightOutlined ,Category,LocationCity} from "@material-ui/icons";
+import {
+  ArrowLeftOutlined,
+  ArrowRightOutlined,
+  Category,
+  LocationCity,
+} from "@material-ui/icons";
 import { useEffect, useState } from "react";
 //import { useParams } from "react-router-dom";
 //import axios from "axios";
@@ -22,20 +27,21 @@ import router from "next/router";
 //toast.configure()
 import ImageMagnifier from "./ImageMagnifier";
 import axios from "axios";
-import Head from 'next/head'
+import Head from "next/head";
 //import Pagination from '@material-ui/lab/Pagination';
 
-import Related from '../../../components/FeaturesProducts/Related'
+import Related from "../../../components/FeaturesProducts/Related";
 //import Rating from '@material-ui/lab/Rating';
 //import Typography from "@material-ui/core/Typography";
 //import Box from '@material-ui/core/Box';
-import css from './index.module.css'
+import css from "./index.module.css";
 import Link from "next/link";
 import Navbar from "../../../components/Navbar";
-import DataGrid from 'react-data-grid';
+import DataGrid from "react-data-grid";
 import SideBar from "../../../components/SideBar";
-import Table from 'react-bootstrap/Table'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Table from "react-bootstrap/Table";
+import "bootstrap/dist/css/bootstrap.min.css";
+import tr from "../../../styles/feature.module.css";
 const ProductDesp = () => {
   const [cat, setCat] = useState([]);
   const [vehicle, setVehicles] = useState([]);
@@ -49,7 +55,12 @@ const ProductDesp = () => {
   const [path, setPath] = useState("");
 
   const [icon, setIcon] = useState([
-    { name:'S',status:false},{name:'M',status:false},{name:'L',status:false},{name:'XL',status:false},{name:'XS',status:false}]);
+    { name: "S", status: false },
+    { name: "M", status: false },
+    { name: "L", status: false },
+    { name: "XL", status: false },
+    { name: "XS", status: false },
+  ]);
   const [carddiv, setCardDiv] = useState(false);
   const handleClick = (direction) => {
     console.log("hello");
@@ -59,10 +70,6 @@ const ProductDesp = () => {
       setSlideIndex(slideIndex < path.length ? slideIndex + 1 : 0);
     }
   };
-
-
-
-
 
   const RadioInput = ({ label, value, checked, setter, name }) => {
     const handelChange = (name) => (e) => {};
@@ -114,7 +121,6 @@ const ProductDesp = () => {
     //     })
     //     // console.log("price", comb)
     //   }
-    
 
     return (
       <label>
@@ -142,8 +148,8 @@ const ProductDesp = () => {
     setCount(count + 1);
   };
   const ChangeStatus = (i) => {
-    console.log("status",icon[i].status)
-    icon[i].status=!icon[i].status;
+    console.log("status", icon[i].status);
+    icon[i].status = !icon[i].status;
   };
   const decCount = () => {
     setCount(count - 1);
@@ -164,7 +170,7 @@ const ProductDesp = () => {
   //   });
   const [itImg, setItimg] = useState({
     img: "https://www.ks-international.com/media/catalog/product/cache/d3609febb2c99e7862c5859e894847cb/0/7/0704176-web_1.webp",
-  })
+  });
   const [item, setItem] = useState({});
   const [nproducts, setProductsN] = useState({});
   const router = useRouter();
@@ -180,38 +186,36 @@ const ProductDesp = () => {
   //   }
   // };
   useEffect(() => {
+    axios
+      .get(`https://mazglobal.co.uk/maz-api/products/${id}`)
+      .then((res) => {
+        console.log("maz", res.data.data);
+        setItem(res.data.data);
+        let path1 = "https://mazglobal.co.uk/maz-api/";
+        console.log("imges", res.data.data.images[0]);
+        //res.data.data.images[0]=path1+res.data.data.images[0];
+        path1 = path1 + res.data.data.images[0];
+        console.log("path", path1);
+        setPath(path1);
+      })
+      .catch((err) => console.log(err));
 
-    
-   
-    axios.get(`https://mazglobal.co.uk/maz-api/products/${id}`)
-    .then(res => {
-      console.log('maz',res.data.data)
-      setItem(res.data.data)
-      let path1="https://mazglobal.co.uk/maz-api/";
-      console.log("imges",res.data.data.images[0]);
-    //res.data.data.images[0]=path1+res.data.data.images[0];
-    path1=path1+res.data.data.images[0];
-    console.log("path",path1);
-    setPath(path1);
-   }).catch(err=>console.log(err))
-    
-   axios.get(`https://mazglobal.co.uk/maz-api/categories`)
-    .then(res => {
-      console.log('maz',res.data.data)
-      setCat(res.data.data)
-   }).catch(err=>console.log(err))
-   
-   axios.get(`https://mazglobal.co.uk/maz-api/vehicles`)
-   .then(res => {
-     console.log('maz',res.data.data)
-     setVehicles(res.data.data)
-  }).catch(err=>console.log(err))
+    axios
+      .get(`https://mazglobal.co.uk/maz-api/categories`)
+      .then((res) => {
+        console.log("maz", res.data.data);
+        setCat(res.data.data);
+      })
+      .catch((err) => console.log(err));
 
-
-   },[])
-  
-
-
+    axios
+      .get(`https://mazglobal.co.uk/maz-api/vehicles`)
+      .then((res) => {
+        console.log("maz", res.data.data);
+        setVehicles(res.data.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const [comb, setcomb] = useState("");
   const [vid, setvid] = useState();
@@ -229,42 +233,41 @@ const ProductDesp = () => {
     selected: "",
     name: "",
   });
-  
-  const columns = [
-    { key: 'name', name: 'Name'},
-    { key: 'descp', name: 'Description'}
-  ];
-  
-  const rows = [
-    { name: 'Product Name', descp: `${item.name}` },
-  
-    { name: 'Maz No', descp: `${item.part_no}` },
-    { name: 'OEM No', descp: `${item.oem_no}` }
-    
-   
 
+  const columns = [
+    { key: "name", name: "Name" },
+    { key: "descp", name: "Description" },
+  ];
+
+  const rows = [
+    { name: "Product Name", descp: `${item.name}` },
+
+    { name: "Maz No", descp: `${item.part_no}` },
+    { name: "OEM No", descp: `${item.oem_no}` },
   ];
   return (
     <>
-     <Head>
+      <Head>
         <title>Product Description</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com"  />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
           rel="stylesheet"
         />
       </Head>
-    <Navbar2/>
-    <Navbar/>
-    <img src='https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg' width='100%'/>
-    <Container>
-      
-       <SideBar/>
-      <ProductShow>
-       <ImgDescp>
-       <Image  src={path}  width='250px' height='400px' />
-       {/* <ImgWrapper slideIndex={slideIndex}>
+      <Navbar2 />
+      <Navbar />
+      <img
+        src="https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg"
+        style={{ width: "100%" }}
+      />
+      <Container>
+        <SideBar />
+        <ProductShow>
+          <ImgDescp>
+            <Image src={path} width="250px" height="400px" />
+            {/* <ImgWrapper slideIndex={slideIndex}>
             {path.map((pa, i) => (
               <Slide bg={item.id} >
                 <ImgContainer>
@@ -273,140 +276,281 @@ const ProductDesp = () => {
               </Slide>
             ))} 
           </ImgWrapper> */}
-          <Desc>
-            
-              
-          <p style={{fontSize:'22px',fontWeight:'200',marginTop:'-10px'}}>  {item.name}</p>
-            
-          <div style={{display:'flex',flexDirection:'row',marginTop:'-10px'}}>
-          <h5 style={{fontWeight:'500',fontSize:'14px'}}>Part Code :</h5> 
-          <p style={{marginTop:'24px',marginLeft:'4px',fontWeight:'500',fontSize:'14px'}} > {item.part_no}</p> 
-          </div>
-          <div style={{display:'flex',flexDirection:'row',fontWeight:'500',marginTop:'-10px'}}>
-          <h5 style={{fontWeight:'500',fontSize:'12px'}}>OEM Part Number:</h5> 
-          <p style={{marginTop:'20px',marginLeft:'4px',fontWeight:'400',fontSize:'12px'}}> {item.oem_no} </p>
-          </div>
+            <Desc>
+              <p
+                style={{
+                  fontSize: "22px",
+                  fontWeight: "200",
+                  marginTop: "-10px",
+                }}
+              >
+                {" "}
+                {item.name}
+              </p>
 
-         
-          {/* <div style={{display:'flex',flexDirection:'row',fontWeight:'200'}}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  marginTop: "-10px",
+                }}
+              >
+                <h5 style={{ fontWeight: "500", fontSize: "14px" }}>
+                  Part Code :
+                </h5>
+                <p
+                  style={{
+                    marginTop: "0px",
+                    marginLeft: "4px",
+                    fontWeight: "500",
+                    fontSize: "14px",
+                  }}
+                >
+                  {" "}
+                  {item.part_no}
+                </p>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  fontWeight: "500",
+                  marginTop: "-10px",
+                }}
+              >
+                <h5 style={{ fontWeight: "500", fontSize: "12px" }}>
+                  OEM Part Number:
+                </h5>
+                <p
+                  style={{
+                    marginTop: "0px",
+                    marginLeft: "4px",
+                    fontWeight: "400",
+                    fontSize: "12px",
+                  }}
+                >
+                  {" "}
+                  {item.oem_no}{" "}
+                </p>
+              </div>
+
+              {/* <div style={{display:'flex',flexDirection:'row',fontWeight:'200'}}>
           <LocationCity/>
           <p style={{marginTop:'20px',marginLeft:'4px',color:'black',fontWeight:'200'}}> 642909  , 1934912  , 268759  , 8235-S4630220200 </p>
           </div> */}
+            </Desc>
+          </ImgDescp>
 
-          
-          </Desc>          
+          <MainDiv>
+            <div
+              style={{
+                background: "rgba(16, 103, 138, 0.933)",
+                padding: "4px",
+                width: "160px",
+              }}
+            >
+              <h5 style={{ color: "white", textAlign: "center" }}>
+                DESCRIPTION
+              </h5>
+            </div>
 
+            {/* <div className={tr.tabl}> */}
+              <Table  striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Product Name</td>
+                    <td>{item.name}</td>
+                  </tr>
+                  <tr>
+                    <td>Maz No</td>
+                    <td>{item.part_no}</td>
+                  </tr>
+                  <tr>
+                    <td>OEM No</td>
+                    <td>{item.oem_no}</td>
+                  </tr>
+                  <tr>
+                    <td>Specifications</td>
+                    <td>{item.product_description}</td>
+                  </tr>
+                  <tr>
+                    <td>Cross Reference</td>
+                    <td>{item.application}</td>
+                  </tr>
+                </tbody>
+              </Table>
+            {/* </div> */}
+{/* 
+            <SmallDiv>
+              <hr
+                style={{
+                  color: "grey",
+                  height: "2px",
+                  marginTop: "-2px",
+                  width: "80%",
+                }}
+              />
 
-       </ImgDescp>
-     
-
-
-      <MainDiv>
-         <div style={{background:'rgba(16, 103, 138, 0.933)' ,padding:'4px',width:'160px'}}>
-          <h5 style={{color:'white',textAlign:'center'}}>DESCRIPTION</h5>
-         </div> 
-        
-         <SmallDiv>
-     
-         <hr width='800px'  style={{color:'grey',height:'2px',marginTop:'-2px'}}/> 
-     
-        
-         <Table striped bordered hover style={{border:'0.095rem solid lightgrey',paddingTop:'20px'}}>
-                 <thead>
-    <tr>
-      
-      <th>Name</th>
-      <th>Description</th>
-      
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-      
-      <td>Product Name</td>
-      <td>{item.name}</td>
-      
-    </tr>
-    <tr>
-     
-      <td>Maz No</td>
-      <td>{item.part_no}</td>
-      
-    </tr>
-    <tr>
-      
-      <td>OEM No</td>
-      <td>{item.oem_no}</td>
-      
-    </tr>
-    <tr>
-    
-      <td>Specifications</td>
-      <td>{item.product_description}</td>
-      
-    </tr>
-    <tr>
-  
-      <td>Cross Reference</td>
-      <td>{item.application}</td>
-      
-    </tr>
-  </tbody>
-  </Table>
-         </SmallDiv> 
-
-        </MainDiv>
-        <MainDiv>
-         <div style={{background:'rgba(16, 103, 138, 0.933)' ,padding:'4px',width:'160px'}}>
-          <h5 style={{color:'white',textAlign:'center'}}>INQUIRY US</h5>
-         </div> 
-         <hr width='850px'  style={{color:'rgba(16, 103, 138, 0.933)',height:'2px',marginTop:'-2px'}}/>
-         <form style={{display:'flex',flexDirection:'column',padding:'30px'}}>
-         <Input type='text' placeholder="Name" className="form-control"></Input>
-         <Input type='email' placeholder="Email" className="form-control"></Input>
-         <Input type='text' placeholder=" Product Name" className="form-control"></Input>
-         <textarea placeholder="Message" style={{background:'whitesmoke',fontFamily:'Helvetica',borderRadius:'4px',marginBottom:'20px',border:'1px solid lightgrey'}}></textarea>
-         <button type='submit' style={{color:'white',width:'200px',borderRadius:'4px',height:'6vh',border:'1px solid lightgrey',background:'rgba(16, 103, 138, 0.933)'}}>
-            Submit</button>
-         </form>
-         </MainDiv>
+              <Table className={tr.lartabl} striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Product Name</td>
+                    <td>{item.name}</td>
+                  </tr>
+                  <tr>
+                    <td>Maz No</td>
+                    <td>{item.part_no}</td>
+                  </tr>
+                  <tr>
+                    <td>OEM No</td>
+                    <td>{item.oem_no}</td>
+                  </tr>
+                  <tr>
+                    <td>Specifications</td>
+                    <td>{item.product_description}</td>
+                  </tr>
+                  <tr>
+                    <td>Cross Reference</td>
+                    <td>{item.application}</td>
+                  </tr>
+                </tbody>
+              </Table>
+            </SmallDiv> */}
+          </MainDiv>
+          <MainDiv>
+            <div
+              style={{
+                background: "rgba(16, 103, 138, 0.933)",
+                padding: "4px",
+                width: "160px",
+              }}
+            >
+              <h5 style={{ color: "white", textAlign: "center" }}>
+                INQUIRY US
+              </h5>
+            </div>
+            <hr
+              style={{
+                color: "rgba(16, 103, 138, 0.933)",
+                height: "2px",
+                marginTop: "-2px",
+                width: "80%",
+              }}
+            />
+            <form
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                padding: "30px",
+              }}
+            >
+              <Input
+                type="text"
+                placeholder="Name"
+                className="form-control"
+              ></Input>
+              <Input
+                type="email"
+                placeholder="Email"
+                className="form-control"
+              ></Input>
+              <Input
+                type="text"
+                placeholder=" Product Name"
+                className="form-control"
+              ></Input>
+              <textarea
+                placeholder="Message"
+                style={{
+                  background: "whitesmoke",
+                  fontFamily: "Helvetica",
+                  borderRadius: "4px",
+                  marginBottom: "20px",
+                  border: "1px solid lightgrey",
+                }}
+              ></textarea>
+              <button
+                type="submit"
+                style={{
+                  color: "white",
+                  width: "200px",
+                  borderRadius: "4px",
+                  height: "6vh",
+                  border: "1px solid lightgrey",
+                  background: "rgba(16, 103, 138, 0.933)",
+                }}
+              >
+                Submit
+              </button>
+            </form>
+          </MainDiv>
         </ProductShow>
+      </Container>
+      <Related />
 
-      
-    </Container>
-     <Related  />
- 
-      <Footer /> 
+      <Footer />
     </>
-    
   );
 };
 
 export default ProductDesp;
 
-
-const Input= styled.input`
-  height:50px;
-  border:0.02rem solid lightgrey;
-  padding:6px;
-  margin-bottom:20px;
-  border-radius:4px;
-  background:whitesmoke;
- 
+const Input = styled.input`
+  height: 50px;
+  border: 0.02rem solid lightgrey;
+  padding: 6px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background: whitesmoke;
 `;
 const ProductShow = styled.div`
   display: flex;
-  flex-direction:column;
-  margin-left:40px;
-  margin-top:55px;
+  flex-direction: column;
+  margin-left: 40px;
+  margin-top: 55px;
+  @media (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  @media (max-width: 300px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 const ImgDescp = styled.div`
   display: flex;
-  flex-direction:row;
-  padding:8px;
-  border:1px solid whitesmoke;
-  margin-bottom:40px;
+  flex-direction: row;
+  padding: 8px;
+  border: 1px solid whitesmoke;
+  margin-bottom: 40px;
+
+  @media (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media (max-width: 300px) {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
 `;
 
 const Bar = styled.div`
@@ -484,10 +628,10 @@ const Right = styled.div`
 
 const FilterText = styled.span`
   font-size: 16px;
-  cursor:pointer;
+  cursor: pointer;
   padding: 8px;
-  font-weight:300;
-  font-family:Montserrat;
+  font-weight: 300;
+  font-family: Montserrat;
   margin-left: 10px;
 `;
 const FilterHomeText = styled.span`
@@ -504,74 +648,80 @@ const FilterTitle = styled.span`
   font-size: 16px;
   font-weight: 500;
   padding: 9px;
-  font-family:Helvatica;
+  font-family: Helvatica;
   background-color: whitesmoke;
 `;
 
-
-
-
-
 const MainDiv = styled.div`
-  border:0.095rem ridge lightgrey;
-  width:860px;
-  margin-left:auto;
-  margin-right:auto;
-  margin-top:50px;
+  border: 0.095rem ridge lightgrey;
+  width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  @media (max-width: 700px) {
+    width: 80%;
+  }
+  @media (max-width: 300px) {
+    width: 80%;
+  }
 `;
 const SmallDiv = styled.div`
-  
-  width:800px;
-  margin-bottom:30px;
-  margin-left:auto;
- 
-  margin-right:auto;
+  width: 800px;
+  margin-bottom: 30px;
+  margin-left: auto;
+
+  margin-right: auto;
+  background: yellow;
+
+  @media (max-width: 700px) {
+    width: 80%;
+  }
+  @media (max-width: 300px) {
+    width: 100%;
+  }
 `;
 const P = styled.p`
-text-align:center;
-color:black;
-font-size:12px;
-padding:6px;
+  text-align: center;
+  color: black;
+  font-size: 12px;
+  padding: 6px;
 `;
 const Ndiv = styled.div`
-  background-color:whitesmoke;
-  width:300px;
-  text-align:center;
-  margin-bottom:20px;
-  margin-left:20px;
-  height:40px;
+  background-color: whitesmoke;
+  width: 300px;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  height: 40px;
 `;
 const Review = styled.div`
   margin-top: 450px;
 `;
 const Size = styled.div`
   margin-left: 20px;
-  padding:20px;
+  padding: 20px;
 `;
 
 const Icon = styled.div`
-  height:40px;
-  width:40px;
-  cursor:pointer;
-  margin-right:6px;
-  
-  border-radius:10px;
-  text-align:center;
-  border-style:groove;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+  margin-right: 6px;
+
+  border-radius: 10px;
+  text-align: center;
+  border-style: groove;
 `;
 const SizeArea = styled.div`
-  display:flex;
-  flex-direction:row;
+  display: flex;
+  flex-direction: row;
 `;
-
 
 const Rate = styled.div`
   font-weight: 600;
   font-size: 22px;
   font-family: Times New Roman;
 `;
-
-
 
 const FilterSize = styled.span`
   display: flex;
@@ -583,10 +733,19 @@ const FilterSizeOpt = styled.span`
   padding-left: 20px;
 `;
 const Container = styled.div`
-    display: flex;
+  display: flex;
   flex-direction: row;
-  flex-wrap:wrap;
-  
+  flex-wrap: wrap;
+  @media (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  @media (max-width: 300px) {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -598,7 +757,7 @@ const Wrapper = styled.div`
 const Boxx = styled.div`
   padding-top: -200px;
   width: 500px;
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   height: 85vh;
   display: flex;
   position: relative;
@@ -623,26 +782,31 @@ const Image = styled.img`
   width: 500px;
 
   object-fit: fill;
+  @media (max-width: 700px) {
+    width: 100%;
+  }
+  @media (max-width: 300px) {
+    width: 100%;
+  }
 `;
 
 const InfoContainer = styled.div`
   margin-left: 50px;
-  background: linear-gradient(to right, rgba(16, 103, 138, 0.933) , black);
+  background: linear-gradient(to right, rgba(16, 103, 138, 0.933), black);
   width: 400px;
-  height:640px;
+  height: 640px;
   margin-top: 100px;
- 
 `;
 
 const Title = styled.h1`
   font-weight: 400;
-  color:yellow;
+  color: yellow;
   padding-left: 20px;
   font-size: 26px;
 `;
 
 const Desc = styled.p`
-  padding:8px;
+  padding: 8px;
 `;
 
 const Price = styled.span`
@@ -694,13 +858,13 @@ const Slide = styled.div`
 
 const Button = styled.button`
   cursor: pointer;
-  width:300px;
-  color:white;
-  margin-bottom:30px;
-  margin-left:40px;
-  margin-right:20px;
+  width: 300px;
+  color: white;
+  margin-bottom: 30px;
+  margin-left: 40px;
+  margin-right: 20px;
   transition: all 0.5s ease;
- 
+
   border: 1px solid teal;
   text-align: center;
   background-color: transparent;

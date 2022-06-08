@@ -168,6 +168,7 @@ const search=()=>{
 
   
   return (
+    <MContainer>
     <div style={{marginLeft:'170px',paddingRight:'20px'}}>
        {/* <Head>
         <title>SideBar</title>
@@ -317,11 +318,20 @@ const search=()=>{
 
     
     </div>
-    
+    </MContainer>
   );
 };
 
 export default SideBar;
+
+
+
+const MContainer = styled.div`
+@media (max-width: 700px) {
+	display:none;
+	
+}
+`;
 
 
 const Input= styled.input`

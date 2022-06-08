@@ -8,8 +8,9 @@ width: 100%;
 
 
 
-@media (max-width: 1000px) {
-	padding: 70px 30px;
+@media (max-width: 700px) {
+	background:white ;
+	padding:0px ;
 }
 `;
 
@@ -21,6 +22,11 @@ export const Container = styled.div`
 	margin: 0 auto;
 	padding-top:20px;
 	padding-bottom:40px;
+	
+@media (max-width: 700px) {
+	display:none;
+	
+}
 	/* background: red; */
 `
 

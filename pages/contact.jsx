@@ -7,13 +7,14 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 //import ProductItem from "../../../components/ProductItem";
 import SingleProduct from "../components/SingleProduct";
-import { HomeOutlined,Category, Email,Person,Message } from "@material-ui/icons";
+import { HomeOutlined,Category, Email,Person,Message, FaceTwoTone } from "@material-ui/icons";
 import { TextField } from "@material-ui/core";
 
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
 import SideBar from "../components/SideBar";
+import ft from '../styles/feature.module.css'
 const ContactUs=()=>{
   useEffect(() => {
     // alert('Finished loading');
@@ -22,18 +23,19 @@ return(
     <>
     <Navbar2/>
     <Navbar/>
-    <img src='https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg' width='100%'/>
+    <img src='https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg' style={{width:'100%'}}/>
       <Container>
-        <div style={{marginLeft:'72px'}}>
+        <Mdiv >
         <SideBar/>
-        </div>
-          <div style={{ margin:'55px'}}>
+        </Mdiv>
+          <Ldiv >
           <Productshow>
           <Div>
               
           </Div>
-          <div style={{marginLeft:'40px',marginRight:'20px'}}>
-          <TextField type='text' placeholder="Name"  style={{marginTop:'40px',marginBottom:'30px',width:'420px'}}
+          <Ndiv >
+          <TextField type='text' placeholder="Name" 
+          className={ft.text}
           InputProps={{
             endAdornment: (
               
@@ -44,7 +46,8 @@ return(
             )
           }}
           />
-          <TextField type='email' placeholder="Email"  style={{marginTop:'30px',marginBottom:'30px',width:'420px'}}
+          <TextField type='email' placeholder="Email"  
+           className={ft.text}
           InputProps={{
             endAdornment: (
               
@@ -55,7 +58,8 @@ return(
             )
           }}
           />
-           <TextField placeholder="Message"  style={{marginTop:'40px',marginBottom:'30px',width:'420px'}}
+           <TextField placeholder="Message"
+            className={ft.text}  
             
             InputProps={{
                 endAdornment: (
@@ -69,10 +73,10 @@ return(
 
 
            />
-           <button style={{marginBottom:'30px',height:'40px',borderRadius:'50px',width:'300px',marginLeft:'60px',marginRight:'auto',marginTop:'30px',backgroundColor:'rgba(16, 103, 138, 0.933)',color:'white'}}>Send</button>
-          </div>
+           <button   className={ft.btn} >Send</button>
+          </Ndiv>
          </Productshow>
-</div>
+</Ldiv>
 </Container>
 <Footer/>
 </>
@@ -81,6 +85,43 @@ return(
 export default ContactUs;
 
 
+
+const Ldiv=styled.div`
+margin:55px;
+@media (max-width: 700px) {
+  margin-top:40px;
+  margin-left:0px;
+  margin-right:0px;
+  
+}
+@media (max-width: 300px) {
+  margin:20px;
+  
+}
+`
+const Ndiv=styled.div`
+margin-left:40px;
+margin-right:20px;
+@media (max-width: 700px) {
+  margin:10px;
+}
+@media (max-width: 300px) {
+  margin:20px;
+  
+}
+`
+
+
+const Mdiv=styled.div`
+  margin-left:72px;
+  @media (max-width: 700px) {
+   margin:0px;
+}
+@media (max-width: 300px) {
+  margin:0px;
+  
+}
+`
 const Title = styled.h1`
   margin: 20px;
   text-align: center;
@@ -92,6 +133,13 @@ const Div = styled.div`
   width:500px;
   object-fit:fill;
   repeat:no repeat;
+  @media (max-width: 700px) {
+    width:100%;
+}
+@media (max-width: 300px) {
+  width:90%;
+  
+}
   
 `;
 const P= styled.p`
@@ -215,14 +263,36 @@ const Productshow = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  @media (max-width: 700px) {
+ width:70%;
+ margin-left:auto; 
+ margin-right:auto;
+}
+@media (max-width: 300px) {
+ width:90%;
+ margin-left:auto;
+ margin-right:auto;
+  
+}
 `;
 
 const Container = styled.div`
 display:flex;
-flex-direction:row;
-
-  
+flex-direction:row;  
   margin-left: auto;
   margin-right: auto;
+  @media (max-width: 700px) {
+    display: flex;
+  flex-direction: column;
+  margin:0px;
+
+}
+@media (max-width: 300px) {
+  display: flex;
+  flex-direction: column;
+  
+}
+
 `;
 
