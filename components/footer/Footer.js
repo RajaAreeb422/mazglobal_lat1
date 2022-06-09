@@ -95,12 +95,10 @@ return (
 				paddingTop: "10px", }}>
 		©️ 2022 MazGlobal. All Rights Reserved.
 	</span>
-	<span style={{ color: "white",
-				float:'right',
-				marginRight:'20px' }}>
+	<Span >
 		| Terms & conditions | Privacy | Cookie Disclaimers |
 
-	</span>
+	</Span>
 	</div>
 	</Box>
 	
@@ -108,6 +106,16 @@ return (
 };
 export default Footer;
 
+
+const Span=styled.span` 
+color: white;
+float:right;
+margin-right:20px; 
+@media (max-width: 760px) {
+	display:none ;
+	
+}
+`
 const PP=styled.p` 
 text-decoration:none;
 cursor:pointer;

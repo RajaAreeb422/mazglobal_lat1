@@ -215,7 +215,7 @@ const ProductDesp = () => {
         setVehicles(res.data.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
   const [comb, setcomb] = useState("");
   const [vid, setvid] = useState();
