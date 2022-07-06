@@ -62,7 +62,7 @@ export default function Home() {
       illustration="development"
     />
     </div>  */}
-<Navbar2/>
+    <Navbar2/>
     <Navbar/>
     
     <Slider/>

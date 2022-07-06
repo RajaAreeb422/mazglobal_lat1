@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 //import { addProduct } from '../../../components/redux/action';
 import { useRouter } from "next/router";
 import React, { memo } from "react";
+
 //import { sliderItems } from "../../../data";
 //import { useLocation } from "react-router";
 // import { publicRequest } from "../requestMethods";

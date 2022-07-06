@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 //import ComingSoon from "react-coming-soon";
 import Image from "next/image";
+import 'bootstrap/dist/css/bootstrap.css'
 // import Preloader from "./components/Preloader/Preloader";
 // import Timer from "./components/Countdown/Timer";
 // import Optin from "./components/Optin/Optin";

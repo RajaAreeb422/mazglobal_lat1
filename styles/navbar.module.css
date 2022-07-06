@@ -17,7 +17,7 @@ width:100%;
  .Topbar{
   display:flex;
   flex-direction:row;
-  height:40px;
+ 
   background-color:whitesmoke;
 
  }
@@ -257,6 +257,10 @@ text-decoration: none;
    0 4px 6px -2px rgba(71, 63, 79, 0.16);
    
   
+}
+.bttn{
+   background-image: linear-gradient(to right, red,rgba(67, 143, 173, 0.933));
+   color:white !important;
 }
  .stick{
     display: flex;

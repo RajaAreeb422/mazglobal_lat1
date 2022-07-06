@@ -17,8 +17,8 @@ import Image from "next/image";
 //import nav from "../styles/navbar.module.css";
 import axios from "axios";
 
-import { menuItems } from "./menuItems";
-import Menu from "./Menu";
+import { mymenuItems } from "./menuItems";
+import MyMenu from "./MyMenu";
 import MobileMenu from "./MobileMenu";
 import Carosel from "./Carosel";
 import nav from "../styles/navbar.module.css";
@@ -71,7 +71,7 @@ const Navbar = () => {
       setCat(list1)
       console.log("list",list1)
     }).catch(err=>console.log(err))
-    menuItems.map(it=>{
+    mymenuItems.map(it=>{
       if(it.title=='Products')
       {
         it.submenu=list1
@@ -92,10 +92,10 @@ const Navbar = () => {
         </Link>
    <ul className="menus" style={{marginLeft:'auto'}}>
     
-    {menuItems.map((menu, index) => (
+    {mymenuItems.map((menu, index) => (
       <>
      
-     <Menu className={nav.list} items={menu} depthLevel={depthLevel}/>
+     <MyMenu className={nav.list} items={menu} depthLevel={depthLevel}/>
      </>
     ))}
    </ul>
@@ -136,7 +136,7 @@ const Navbar = () => {
 {isNavExpanded? 
 <ul style={{width:'100%',padding:'0'}}>
     <hr  style={{marginTop:'-10px',marginBottom:'-7px'}}/>
-    {menuItems.map((menu, index) => (
+    {mymenuItems.map((menu, index) => (
       <div key={index} style={{height:'50px'}}>
      <MobileMenu className={nav.mlist} items={menu} depthLevel={depthLevel}/>
      <hr />

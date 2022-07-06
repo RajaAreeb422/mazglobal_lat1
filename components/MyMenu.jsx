@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import Dropdown from "./Dropdown1";
 import Link from "next/link";
 
-const Menu =({items,depthLevel}) => {
+const MyMenu =({items,depthLevel}) => {
   
   
   const [dropdown, setDropdown] = useState(false);
@@ -85,6 +85,6 @@ const Menu =({items,depthLevel}) => {
   );
 };
 
-export default Menu;
+export default MyMenu;
 
  

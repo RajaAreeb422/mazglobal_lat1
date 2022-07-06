@@ -1,4 +1,4 @@
-import Menu from "./Menu";
+import MyMenu from "./MyMenu";
 import DrpMenu from "./CustomNav";
 import Link from 'next/link';
 import { useEffect, useState } from "react";
