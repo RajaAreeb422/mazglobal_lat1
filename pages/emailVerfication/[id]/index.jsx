@@ -59,7 +59,7 @@ const Index = () => {
       let decoded = jwt_decode(token.id);
       setUser(decoded.result);
       console.log("token",token.id,decoded)
-    axios.get(`http://localhost:8080/maz-api/users/${101}`)//api url
+    axios.get(`https://api.mazglobal.co.uk/maz-api/users/${decoded.result.id}`)//api url
        .then(resp =>{//calling url by method GET
              
              setLabel(true)

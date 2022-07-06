@@ -42,7 +42,7 @@ const Login = () => {
     const json = JSON.stringify(data);
     console.log(json);
 
-    axios.post(`http://localhost:8080/maz-api/users/login`, json,
+    axios.post(`https://api.mazglobal.co.uk/maz-api/users/login`, json,
 
       { headers: { 'content-type': 'application/json' } }
     )
@@ -90,7 +90,7 @@ const chkemail = () => {
   //   console.log(err)})
   
   // { headers: { 'content-type': 'application/json' } }
-    axios.post(`http://localhost:8080/maz-api/users/account/forgotPassword`, remail,
+    axios.post(`https://api.mazglobal.co.uk/maz-api/users/account/forgotPassword`, remail,
            { headers: { 'content-type': 'application/json' } }
         ).then(response => {
           toast(`Check your email to get the link `)

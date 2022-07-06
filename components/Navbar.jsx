@@ -28,7 +28,7 @@ const Navbar = () => {
   useEffect(() => {
     let list=[];
     let list1=[]
-    axios.get(`https://mazglobal.co.uk/maz-api/categories`)
+    axios.get(`https://api.mazglobal.co.uk/maz-api/categories`)
     .then(res => {
       console.log('maz',res.data.data)
       

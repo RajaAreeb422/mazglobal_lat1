@@ -156,7 +156,7 @@ const ProductDesp = () => {
     setCount(count - 1);
   };
 
-  const [thrddiv, setThrdDiv] = useState(false);
+  const [spinner, setSpinner] = useState(true);
   const [color, setColor] = React.useState();
   const [mat, setMaterial] = React.useState();
   const [size, setSize] = React.useState();
@@ -187,12 +187,13 @@ const ProductDesp = () => {
   //   }
   // };
   useEffect(() => {
+    setSpinner(true)
     axios
-      .get(`https://mazglobal.co.uk/maz-api/products/${id}`)
+      .get(`https://api.mazglobal.co.uk/maz-api/products/${id}`)
       .then((res) => {
         console.log("maz", res.data.data);
         setItem(res.data.data);
-        let path1 = "https://mazglobal.co.uk/maz-api/";
+        let path1 = "https://api.mazglobal.co.uk/";
         console.log("imges", res.data.data.images[0]);
         //res.data.data.images[0]=path1+res.data.data.images[0];
         path1 = path1 + res.data.data.images[0];
@@ -202,7 +203,7 @@ const ProductDesp = () => {
       .catch((err) => console.log(err));
 
     axios
-      .get(`https://mazglobal.co.uk/maz-api/categories`)
+      .get(`https://api.mazglobal.co.uk/maz-api/categories`)
       .then((res) => {
         console.log("maz", res.data.data);
         setCat(res.data.data);
@@ -210,12 +211,13 @@ const ProductDesp = () => {
       .catch((err) => console.log(err));
 
     axios
-      .get(`https://mazglobal.co.uk/maz-api/vehicles`)
+      .get(`https://api.mazglobal.co.uk/maz-api/vehicles`)
       .then((res) => {
         console.log("maz", res.data.data);
         setVehicles(res.data.data);
       })
       .catch((err) => console.log(err));
+      setRows()
   }, [id]);
 
   const [comb, setcomb] = useState("");
@@ -240,14 +242,25 @@ const ProductDesp = () => {
     { key: "descp", name: "Description" },
   ];
 
-  const rows = [
-    { name: "Product Name", descp: `${item.name}` },
+  // const rows = [
+  //   { name: "Product Name", descp: `${item.name}` },
 
-    { name: "Maz No", descp: `${item.part_no}` },
-    { name: "OEM No", descp: `${item.oem_no}` },
-  ];
+  //   { name: "Maz No", descp: `${item.part_no}` },
+  //   { name: "OEM No", descp: `${item.oem_no}` },
+  // ];
+
+  const setRows=()=>{
+    const rows = [
+      { name: "Product Name", descp: `${item.name}` },
+  
+      { name: "Maz No", descp: `${item.part_no}` },
+      { name: "OEM No", descp: `${item.oem_no}` },
+    ];
+    setSpinner(false)
+  }
   return (
-    <>
+   
+   <>
       <Head>
         <title>Product Description</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -257,6 +270,9 @@ const ProductDesp = () => {
           rel="stylesheet"
         />
       </Head>
+     
+      {router.isFallback && spinner==false? (<div>Loading...</div>):
+      <>
       <Navbar2 />
       <Navbar />
       <img
@@ -267,16 +283,8 @@ const ProductDesp = () => {
         <SideBar />
         <ProductShow>
           <ImgDescp>
-            <Image src={path} width="250px" height="400px" />
-            {/* <ImgWrapper slideIndex={slideIndex}>
-            {path.map((pa, i) => (
-              <Slide bg={item.id} >
-                <ImgContainer>
-                  
-                </ImgContainer>
-              </Slide>
-            ))} 
-          </ImgWrapper> */}
+            <Image src={path} width="100%" height="600px" />
+            
             <Desc>
               <p
                 style={{
@@ -335,10 +343,7 @@ const ProductDesp = () => {
                 </p>
               </div>
 
-              {/* <div style={{display:'flex',flexDirection:'row',fontWeight:'200'}}>
-          <LocationCity/>
-          <p style={{marginTop:'20px',marginLeft:'4px',color:'black',fontWeight:'200'}}> 642909  , 1934912  , 268759  , 8235-S4630220200 </p>
-          </div> */}
+             
             </Desc>
           </ImgDescp>
 
@@ -355,7 +360,7 @@ const ProductDesp = () => {
               </h5>
             </div>
 
-            {/* <div className={tr.tabl}> */}
+          
               <Table  striped bordered hover>
                 <thead>
                   <tr>
@@ -503,6 +508,8 @@ const ProductDesp = () => {
 
       <Footer />
     </>
+              }
+              </>
   );
 };
 

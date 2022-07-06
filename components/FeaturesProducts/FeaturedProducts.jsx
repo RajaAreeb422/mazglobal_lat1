@@ -17,9 +17,9 @@ const FeaturedProducts = ({products}) => {
 
     
     
-    axios.get(`https://mazglobal.co.uk/maz-api/products`)//api url
+    axios.get(`https://api.mazglobal.co.uk/maz-api/products`)//api url
     .then(resp =>{//calling url by method GET
-          console.log('alll prooo',resp.data.data)
+         
             
              setSizeProduct(resp.data.data)
          }).catch(err=>console.log(err))

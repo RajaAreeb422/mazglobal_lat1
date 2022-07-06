@@ -107,6 +107,49 @@
   margin-left: 0.5rem;
 }
 
+.body1 {
+  height: 750px;
+  background-image: url('/bgimage.jpg');
+  margin: 0;
+}
+
+.bgimg {
+  background-image: url('/bgimage.jpg');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
+
+.topleft {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  /*background-color:white;*/
+}
+
+.bottomleft {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.hr1 {
+  margin: auto;
+  width: 40%;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

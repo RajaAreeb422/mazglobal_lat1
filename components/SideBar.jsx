@@ -51,19 +51,19 @@ const SideBar = () => {
 //       setItem(res.data.data)
 //    })
 
-   axios.get(`https://mazglobal.co.uk/maz-api/products`)
+   axios.get(`https://api.mazglobal.co.uk/maz-api/products`)
     .then(res => {
       console.log('maz',res.data.data)
       setProducts(res.data.data)
    })
     
-   axios.get(`https://mazglobal.co.uk/maz-api/categories`)
+   axios.get(`https://api.mazglobal.co.uk/maz-api/categories`)
     .then(res => {
       console.log('maz',res.data.data)
       setCat(res.data.data)
    })
    
-   axios.get(`https://mazglobal.co.uk/maz-api/vehicles`)
+   axios.get(`https://api.mazglobal.co.uk/maz-api/vehicles`)
    .then(res => {
      console.log('maz',res.data.data)
      setVehicles(res.data.data)
@@ -303,6 +303,7 @@ const search=()=>{
                   marginLeft: "10px",
                   marginRight: "auto",
                   marginTop: "20px",
+                  fontSize:'18px',
                   backgroundColor: "rgba(16, 103, 138, 0.933)",
                   color: "white",
                 }}

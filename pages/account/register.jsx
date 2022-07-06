@@ -58,7 +58,7 @@ const Register = () => {
         const json = JSON.stringify(data);
         console.log("jsonnnn",json);
         // https://mazglobal.co.uk/maz-api/users
-        axios.post(`http://localhost:8080/maz-api/users`, json,
+        axios.post(`https://api.mazglobal.co.uk/maz-api/users`, json,
 
             { headers: { 'content-type': 'application/json' } }
         )

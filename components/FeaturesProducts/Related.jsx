@@ -15,10 +15,10 @@ const Related = () => {
   const [products,setProducts]=useState([])
   useEffect(() => {
    
-    axios.get(`https://mazglobal.co.uk/maz-api/products`)//api url
+    axios.get(`https://api.mazglobal.co.uk/maz-api/products`)//api url
     .then(resp =>{//calling url by method GET
           console.log('alll prooo',resp.data.data)
-          let path1="https://mazglobal.co.uk/maz-api/";
+          let path1="https://api.mazglobal.co.uk/";
       
           let list=[]
           resp.data.data.map(it=>{

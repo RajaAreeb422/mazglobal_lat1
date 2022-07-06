@@ -90,7 +90,7 @@ const Navbar2 = () => {
     } else {
       setloggedIn("");
     }
-    axios.get(`https://mazglobal.co.uk/maz-api/products`)
+    axios.get(`https://api.mazglobal.co.uk/maz-api/products`)
     .then(res=>{
       setProducts(res.data.data)
     }).catch(err=>console.log(err))

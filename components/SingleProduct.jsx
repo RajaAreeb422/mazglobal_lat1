@@ -12,7 +12,7 @@ const SingleProduct = ({ item}) => {
 
  
   useEffect(() => {
-    let path1="https://mazglobal.co.uk/maz-api/";
+    let path1="https://api.mazglobal.co.uk/";
     item.path=path+item.path;
     path1=path1+item.path;
     console.log("path",path1);

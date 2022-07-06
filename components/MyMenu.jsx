@@ -12,6 +12,8 @@ const MyMenu =({items,depthLevel}) => {
   let ref = useRef();
 
   useEffect(() => {
+
+    console.log("submenu",items.submenu)
     setDoc(document)
     const handler = (event) => {
       if (dropdown && ref.current && !ref.current.contains(event.target)) {

@@ -74,7 +74,7 @@ const Index = () => {
   const { id } = router.query;
   useEffect(() => {
 
-    axios.get(`https://mazglobal.co.uk/maz-api/products/category/${id}`)//api url
+    axios.get(`https://api.mazglobal.co.uk/maz-api/products/category/${id}`)//api url
        .then(resp =>{//calling url by method GET
              console.log("productz",resp.data.data)
              setItems(resp.data.data)

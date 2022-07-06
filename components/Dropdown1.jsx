@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 const Dropdown = ({ submenus, dropdown, depthLevel }) => {
   useEffect(() => {
     // alert('Finished loading');
+    console.log("dropdownss",submenus)
   }, []);
   depthLevel = depthLevel + 1;
   const dropdownClass = depthLevel > 1 ? "dropdown-submenu" : "";

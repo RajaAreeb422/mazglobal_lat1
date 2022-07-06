@@ -83,7 +83,7 @@ const Index = () => {
       setUser(110)
       axios
       .put(
-        `http://localhost:8080/maz-api/users/account/updatePassword/${110}`,
+        `https://api.mazglobal.co.uk/maz-api/users/account/updatePassword/${decoded.result.id}`,
          {password:newpswrd},
   
         { headers: { 'content-type': 'application/json' } },
