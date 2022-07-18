@@ -232,7 +232,7 @@ text-decoration: none;
     display:flex;
     flex-direction: row;
     background-color: rgba(67, 143, 173, 0.933);
-    
+    padding-bottom: 0px;
     padding: 20px;
     width:100%;
     margin-left: auto;

@@ -187,17 +187,27 @@ const ProductDesp = () => {
   //   }
   // };
   useEffect(() => {
+    if(router.isReady)
+    {
+
+    console.log(' desc idd',id)
     setSpinner(true)
     axios
       .get(`https://api.mazglobal.co.uk/maz-api/products/${id}`)
       .then((res) => {
         console.log("maz", res.data.data);
         setItem(res.data.data);
+        const rows = [
+          { name: "Product Name", descp: `${res.data.data.name}` },
+      
+          { name: "Maz No", descp: `${res.data.data.part_no}` },
+          { name: "OEM No", descp: `${res.data.data.oem_no}` },
+        ];
         let path1 = "https://api.mazglobal.co.uk/";
-        console.log("imges", res.data.data.images[0]);
+      
         //res.data.data.images[0]=path1+res.data.data.images[0];
         path1 = path1 + res.data.data.images[0];
-        console.log("path", path1);
+      
         setPath(path1);
       })
       .catch((err) => console.log(err));
@@ -213,11 +223,12 @@ const ProductDesp = () => {
     axios
       .get(`https://api.mazglobal.co.uk/maz-api/vehicles`)
       .then((res) => {
-        console.log("maz", res.data.data);
+        
         setVehicles(res.data.data);
       })
       .catch((err) => console.log(err));
       setRows()
+    }
   }, [id]);
 
   const [comb, setcomb] = useState("");
@@ -271,13 +282,12 @@ const ProductDesp = () => {
         />
       </Head>
      
-      {router.isFallback && spinner==false? (<div>Loading...</div>):
+      {router.isFallback && spinner==true? (<div>Loading...</div>):
       <>
       <Navbar2 />
       <Navbar />
-      <img
-        src="https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg"
-        style={{ width: "100%" }}
+      <Image src='/truck.jpeg' 
+       width="100%" height="30%" layout="responsive"
       />
       <Container>
         <SideBar />
@@ -813,7 +823,7 @@ const Title = styled.h1`
   font-size: 26px;
 `;
 
-const Desc = styled.p`
+const Desc = styled.div`
   padding: 8px;
 `;
 

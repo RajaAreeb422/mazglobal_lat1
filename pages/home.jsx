@@ -11,10 +11,14 @@ import CustomNav from '../components/CustomNav'
 import Navbar from '../components/Navbar'
 import st from  '../styles/feature.module.css'
 import { useState, useEffect } from "react";
+import TopProducts from '../components/FeaturesProducts/TopProducts'
 //import ComingSoon from "react-coming-soon";
 
 // import Backtotop from '../components/Backtotop'
 import axios from 'axios'
+import ProductCategories from '../components/ProductCategories'
+import ProductVehicles from '../components/ProductVehicles'
+import Brands from '../components/Brands'
 export default function Home() {
 
   const [products,setProducts]=useState([])
@@ -66,15 +70,29 @@ export default function Home() {
     <Navbar/>
     
     <Slider/>
-    <Mission/>
+    <div style={{textAlign:'center',margin:'20px',padding:'20px'}}>
+    <h1 >MAZ Global –The Reliable Online Auto Parts Store in the UK</h1>
+    <p style={{marginLeft:'auto',marginRight:'auto',width:'50%'}}>We are the one of the top stockist of a broad range of automotive spare parts from various auto brands, delivering across the UK and Europe.</p>
+    </div>
+    {/* <Mission/> */}
     {products.length!=0?<FeaturedProducts products={products}/>:''}
-    
+    <ProductCategories/>
+   
     <div style={{marginTop:'40px'}}>
       </div>
     <AboutUs/>
     <div style={{marginTop:'40px',marginBottom:'40px',textAlign:'center'}}>
   
     </div>
+    <ProductVehicles/>
+    <div style={{marginTop:'40px',marginBottom:'40px',textAlign:'center'}}>
+  
+    </div>
+    <div style={{background:'whitesmoke',padding:'10px'}}>
+    {products.length!=0?<TopProducts products={products}/>:''}
+    </div>
+    
+    <Brands/>
     <Footer/>  
    
     </>

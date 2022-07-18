@@ -40,9 +40,9 @@ const Slider = () => {
     //               </div>
                   
     //           </Carousel>
-    <div style={{marginBottom:'60px',width:'100%'}}>
-    <Carousel>
-      <Carousel>
+    <div style={{marginBottom:'0px',width:'100%'}}>
+    <Carousel controls={false}>
+      
   <Carousel.Item interval={5000} >
     <img
       className="d-block w-100"
@@ -73,7 +73,7 @@ const Slider = () => {
   
   </Carousel.Item>
 </Carousel>
-    </Carousel>
+ 
 </div>
   );
 };

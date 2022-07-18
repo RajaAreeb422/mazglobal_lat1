@@ -9,6 +9,8 @@ import SingleProduct from "../components/SingleProduct";
 import { HomeOutlined, Category } from "@material-ui/icons";
 import Navbar from "../components/Navbar";
 import SideBar from "../components/SideBar";
+import Image from "next/image";
+import Head from "next/head";
 //import axios from "axios";
 //import Pagination from '@material-ui/lab/Pagination';
 
@@ -145,11 +147,19 @@ const About = () => {
   }
   return (
     <>
+     <Head>
+        <title>About Us</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com"  />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <Navbar2 />
       <Navbar />
-      <img
-        src="https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg"
-        style={{width:'100%'}}
+      <Image src='/truck.jpeg' 
+       width="100%" height="30%" layout="responsive"
       />
       <Container>
         <Div >

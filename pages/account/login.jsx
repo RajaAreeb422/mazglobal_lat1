@@ -12,8 +12,10 @@ import router from 'next/router';
 import Head from 'next/head'
 import {toast,ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import validator from 'validator'
 const Login = () => {
   const [mydiv, setMyDiv] = useState(false)
+  const [error, setError] = useState('')
   const [remail, setREmail] = useState({
     email:''
   })
@@ -72,6 +74,20 @@ const Login = () => {
     setREmail({email:e.target.value})
 
 };
+const validateEmail = (e) => {
+   let email=e.target.value
+  if(email=='')
+  {
+    setError('')
+  }
+  else if (validator.isEmail(email)) {
+    //setEmailError('Valid Email :)')
+    setREmail({email:e.target.value})
+    setError('')
+  } else {
+    setError("Invalid Email.Please Enter Correct format abc123@xyz.com")
+  }
+}
 
 const chkemail = () => {
     console.log("in chk email",remail)
@@ -88,25 +104,44 @@ const chkemail = () => {
   //   else
   //   toast(`!OOps, Something went wrong`)
   //   console.log(err)})
-  
+ // https://api.mazglobal.co.uk/maz-api
   // { headers: { 'content-type': 'application/json' } }
-    axios.post(`https://api.mazglobal.co.uk/maz-api/users/account/forgotPassword`, remail,
+  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  
+    axios.post(`http://localhost:8080/maz-api/users/account/forgotPassword`, remail,
            { headers: { 'content-type': 'application/json' } }
         ).then(response => {
           toast(`Check your email to get the link `)
+          console.log("helloo",response.status)
+              if(response.status!=403)
               forgottoggle()
+              else
+               toast(`Sorry Email is not registered`)
+             
+                 
+                
             }).catch((err) => {
              
-              if(err.status==403)
+              if(err.message=='Request failed with status code 403')
                 toast(`Sorry Email is not registered`)
               else
                 toast(`!OOps, Something went wrong`)
-                 console.log(err)
+                 console.log("helloo",err.message)
                  forgottoggle()
             });
+
+    
+      // this is a valid email address
+      // call setState({email: email}) to update the email
+      // or update the data in redux store.
+ 
+      // invalid email, maybe show an error to the user.
+      // console.log("in ifffff")
+      // setError("Invalid Email.Please Enter Correct format abc123@xyz.com")
    
 
-
+          
 
 };
 
@@ -152,7 +187,9 @@ const chkemail = () => {
       <Modal isOpen={forgotmodal} toggle={forgottoggle}>
           <ModalHeader toggle={forgotmodal}>Recovery Email</ModalHeader>
           <ModalBody>
-            <input type='email' name='email' placeholder='Registered Email' onChange={(e)=>setREmail({email:e.target.value})}/>
+            <input style={{width:'400px',padding:'6px',borderRadius:'4px'}}
+             type='email' name='email' placeholder='Registered Email' onChange={(e) => validateEmail(e)}/>
+            <p style={{color:'red'}}>{error}</p>
           </ModalBody>
           <ModalFooter>
             <Button2 color="primary" onClick={chkemail}>

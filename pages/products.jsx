@@ -12,6 +12,7 @@ import SideBar from "../components/SideBar";
 import axios from "axios";
 import router from 'next/router';
 import Head from 'next/head';
+import Image from "next/image";
 //import Pagination from '@material-ui/lab/Pagination';
 
 const Products = () => {
@@ -198,9 +199,8 @@ const Products = () => {
       </Head>
       <Navbar2/>
       <Navbar/>
-      <img
-        src="https://www.chanceparts.com/Uploads/info/60ccb07493e7c.jpg"
-        style={{width:'100%'}}
+      <Image src='/truck.jpeg' 
+       width="100%" height="30%" layout="responsive"
       />
       <Container>
         <SideBar/>

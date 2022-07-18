@@ -11,7 +11,7 @@ import { Icon } from "@material-ui/core";
 import ic from '../../styles/feature.module.css'
 import axios from 'axios';
 import ASlide from "./ASlide";
-const FeaturedProducts = ({products}) => {
+const TopProducts = ({products}) => {
   const [spro,setSizeProduct]=useState([])
   useEffect(() => {
 
@@ -89,7 +89,7 @@ const FeaturedProducts = ({products}) => {
         }}
       > */}
         
-          <p className={ic.h4} style={{marginTop:'30px',marginBottom:'20px'}}>Our Best-Selling Products</p>
+          <p className={ic.h4} style={{marginTop:'30px',marginBottom:'20px',textAlign:'center'}}>Explore Our Top-class Products</p>
            
 
           <ASlide deal={products} /> 
@@ -99,4 +99,4 @@ const FeaturedProducts = ({products}) => {
     // </div>
   );
 };
-export default FeaturedProducts;
+export default TopProducts;

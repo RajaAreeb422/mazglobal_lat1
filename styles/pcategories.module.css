@@ -1,11 +1,15 @@
 .Container{
-    width: 80%;
-    margin-left: 11%;
-    margin-right: 10%;
-    
+    width: 100%;
+
+   
 
      }
-
+     .VhContainer{
+        width: 100%;
+      
+       
+    
+         }
      .Container2{
         width: 1000px;
         margin-left: auto;
@@ -18,9 +22,46 @@
      .h4{
         text-align: center;
         font-size:26px ;
+      
         font-family: 'Montserrat', sans-serif;
     }
-
+    
+    .catDiv{
+        display:'flex';
+        flex-direction:'column';
+        justify-content:inherit;
+        transition: transform .4s ease;
+        border:0.095rem solid lightgrey;
+        border-radius:8px ;
+        margin: 8px;
+        font-family: 'Montserrat', sans-serif;
+        /* border-left: 1px solid grey; */
+        cursor: pointer;
+        height: auto;
+      
+}
+   
+.vhDiv{
+    display:'flex';
+    flex-direction:'column';
+    justify-content:inherit;
+    transition: transform .4s ease;
+    
+   
+    margin: 8px;
+    font-family: 'Montserrat', sans-serif;
+    /* border-left: 1px solid grey; */
+    cursor: pointer;
+    height: auto;
+  
+}
+.dots{
+    display: flex;
+    flex-direction: row;
+    margin-top:-15px ;
+    
+    margin-left:10px ;
+}
     .imgDiv{
             display:'flex';
             flex-direction:'column';
@@ -52,7 +93,10 @@
       }
 
       .largeView{
-
+       display: flex;
+       flex-direction: row;
+       justify-content:center;
+       flex-wrap: wrap;
       }
 
       .mobileView{
@@ -101,7 +145,6 @@
          width:100%;
       
         }
-        
         .imgDiv{
             display:'flex';
             flex-direction:'column';
@@ -118,6 +161,27 @@
             
           
     }
+    .catDiv{
+      display:'flex';
+      flex-direction:'column';
+      align-content:'space-between';
+      transition: transform .4s ease;
+      border:0.095rem solid lightgrey;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 10px;
+      /* border-left: 1px solid grey; */
+      height: 230px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 10px 10px 10px 10px;
+      border-radius:8px ;
+      cursor: pointer;
+      height: auto;
+      
+
+      
+    
+}
     .text{
         
         width:95%;

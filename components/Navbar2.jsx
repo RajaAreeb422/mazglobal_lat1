@@ -101,16 +101,19 @@ const Navbar2 = () => {
 
   const Search=()=>{
      let status=false
+     console.log("products",products)
+     let prId=0;
     products.map(pr=>{
-      console.log('name',pr.name)
+      console.log('name',pr.part_no)
       console.log('part',part)
       if(pr.part_no==part)
       {
         setId(pr.id)
+        prId=pr.id
         console.log('ifff',pr.name)
         setPart('')
-        
-        router.push(`/productdescp/${pr.id}`);
+        status=true
+       
       }
      
     })
@@ -121,6 +124,9 @@ const Navbar2 = () => {
       { pathname: "/products", query: { part: part } }
      
     );
+    }
+    else{
+      router.push(`/productdescp/${prId}`);
     }
   }
 

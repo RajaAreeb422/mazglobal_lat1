@@ -83,19 +83,27 @@ const SideBar = () => {
 const search=()=>{
     if(state.part_no!=''&& state.catg==null && state.vh==null)
     {
-     
+     let status=false;
+     let prId=0;
       products.map(pr=>{
         if(pr.part_no==state.part_no)
         {
-         router.push(`/productdescp/${pr.id}`)
+          console.log("in iff search")
+          status=true
+          prId=pr.id
         }
       })
-    
+       
+      if(status==false)
+      {
         router.push(
           { pathname: "/products", query: { part: state.part_no } }
          
         );
-      
+        }
+        else{
+          router.push(`/productdescp/${prId}`)
+        }
     }
     else if(state.part_no!='' && state.catg!=null && state.vh==null )
     {
@@ -120,48 +128,57 @@ const search=()=>{
     else if(state.part_no==''&& state.catg!=null && state.vh==null)
     {
       console.log("helllooooo")
+      router.push(`/category/${state.catg}`)
+      // products.map(pr=>{
+      //   console.log("cat",pr.category_id)
+      //   console.log("state",state.catg)
+      //   if(pr.category_id==state.catg)
+      //   {
+      //     console.log("helllooooo 22")
+           
+      //      router.push(`/category/${state.catg}`)
+      //   }
+      // })
+    }
+    else if((state.part_no=='') && (state.catg!=''||state.catg!=null) && (state.vh!=null || state.vhv!='') )
+    {
+      console.log("vh category",state)
       products.map(pr=>{
-        console.log("cat",pr.category_id)
-        console.log("state",state.catg)
-        if(pr.category_id==state.catg)
+        if(pr.vehicle_id==state.vh && pr.category_id==state.catg)
         {
-          console.log("helllooooo 22")
-           router.push(`/category/${state.catg}`)
+           router.push('/products')
         }
       })
     }
-    else if(state.part_no=='' && state.catg!=null && state.vh!=null )
+    else if(state.part_no=='' &&  (state.catg==null||state.catg=='')  && state.vh!=null)
     {
-      products.map(pr=>{
-        if(pr.vehicle-id==state.vh && pr.category_id==state.catg)
-        {
-           router.push()
-        }
-      })
-    }
-    else if(state.part_no=='' && state.catg==null && state.vh!=null)
-    {
-      products.map(pr=>{
-        console.log("vehicleee")
-        console.log("vh",pr.vehicle_id)
-        console.log("state",state.vh)
-        if( pr.vehicle_id==state.vh)
-        {
-          console.log("vh",pr.vehicle_id)
-          router.push(`/vehicle/${pr.vehicle_id}`)
-        }
+      console.log("vehicle id",state.vh)
+      router.push(`/vehicle/${state.vh}`)
+      // products.map(pr=>{
+      //   console.log("vehicleee")
+      //   console.log("vh",pr.vehicle_id)
+      //   console.log("state",state.vh)
+      //   if( pr.vehicle_id==state.vh)
+      //   {
+      //     console.log("vh",pr.vehicle_id)
+      //     router.push(`/vehicle/${pr.vehicle_id}`)
+      //   }
       
-      })
+      // })
     }
-    else (state.part_no!='' && state.catg==null && state.vh!=null)
+    else if(state.part_no!=null && state.catg==null && state.vh!=null)
     {
       products.map(pr=>{
-        console.log("vhh")
+        
         if(pr.part_no==state.part_no && pr.vehicle_id==state.vh)
         {
            router.push(`/productdescp/${pr.id}`)
         }
       })
+    }
+    else{
+      console.log("vhhjkkjj",state.vh,state.part_no)
+
     }
 }
 

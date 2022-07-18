@@ -10,10 +10,10 @@ import SingleProduct from "../../../components/SingleProduct";
 import { HomeOutlined,Category } from "@material-ui/icons";
 import Navbar from "../../../components/Navbar";
 import axios from "axios";
+import Image from "next/image";
 //import Pagination from '@material-ui/lab/Pagination';
 import { useRouter } from 'next/router';
 import SideBar from "../../../components/SideBar";
-import Image from "next/image";
 const Index = () => {
   const [page, setPage] = useState(1);
   const [items, setItems] = useState([]);
@@ -75,7 +75,7 @@ const Index = () => {
   const { id } = router.query;
   useEffect(() => {
 
-    axios.get(`https://api.mazglobal.co.uk/maz-api/products/vehicle/${id}`)//api url
+    axios.get(`https://api.mazglobal.co.uk/maz-api/products/supplier/${id}`)//api url
        .then(resp =>{//calling url by method GET
              console.log("productz",resp.data.data)
              setItems(resp.data.data)
@@ -136,7 +136,7 @@ const Index = () => {
   return (
     <>
      <Head>
-        <title>Vehicles</title>
+        <title>Supplier</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com"  />
         <link
@@ -146,7 +146,12 @@ const Index = () => {
       </Head>
       <Navbar2/>
       <Navbar/>
-      <Image src='/truck.jpeg' width='100%'/>
+ 
+      <Image src='/truck.jpeg' 
+       width="100%" height="30%" layout="responsive"
+      />
+      
+      
       <Container>
       <SideBar/>
         
