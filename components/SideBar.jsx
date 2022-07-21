@@ -1,7 +1,8 @@
 import { Add, PanToolSharp, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 
-import { ArrowLeftOutlined, ArrowRightOutlined ,Category,LocationCity,CropSquare,List,SearchOutlined} from "@material-ui/icons";
+import { ArrowLeftOutlined, ArrowRightOutlined ,
+  Category,LocationCity,CropSquare,List,SearchOutlined,LocalShipping} from "@material-ui/icons";
 import { useEffect, useState } from "react";
 
 
@@ -223,6 +224,35 @@ const search=()=>{
               
             </Filter>
           </LeftBar>
+         
+          <LeftBar>
+            <Filter>
+              <Bar>
+                <div
+                  style={{
+                    backgroundColor: "rgba(16, 103, 138, 0.933)",
+                    width: "50px",
+                    height: "50px",
+                  }}
+                >
+                  <LocalShipping style={{ color: "white", marginTop: "8px",fontSize:'32px' }} />
+                </div>
+                <FilterTitle>Vehicles</FilterTitle>
+              </Bar>
+              <hr width="247px" style={{ marginTop: "-2px" }} />
+              {vehicle.map(ca=>(
+                <Link key={ca.id} href="/vehicle/[id]" as={`/vehicle/${ca.id}`}>
+                       <FilterText><CropSquare style={{fontSize:'5px',backgroundColor:'black'}}/> {ca.name}</FilterText>
+                       </Link>
+              ))}
+            
+              
+            </Filter>
+          </LeftBar>
+
+
+
+
 
           <SearchBar>
             <Filter>

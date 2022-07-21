@@ -123,7 +123,12 @@ const ProductCategories= () => {
 
               {categories.map((it,key) => (
                 <Link key={key} href="/productdescp/[id]" as={`/productdescp/${it.id}`}>
+                  <div className={ic.imgDiv}>
+                  <img src={box[key].img} height='130px' width='150px' style={{margin:'10px'}}/>
+                  {/* <p style={{ marginLeft:'20px',color:'rgba(16, 103, 138, 0.933)',fontSize:'20px' }}>{it.price} PKR</p> */}
+                  <h5 style={{ marginLeft:'10px',fontSize:'16px',fontWeight:'320' }}>{it.name}</h5>
                   
+                  </div>
                   <div className={ic.catDiv}>
                   <img src={box[key].img} height='130px' width='150px' style={{margin:'10px'}}/>
                   {/* <p style={{ marginLeft:'20px',color:'rgba(16, 103, 138, 0.933)',fontSize:'20px' }}>{it.price} PKR</p> */}

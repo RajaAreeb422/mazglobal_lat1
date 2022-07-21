@@ -35,26 +35,27 @@ const Mission = () => {
       <div className={nav.mitem}>
        <Settings style={{height:'70px',width:'70px'}}/>
        <div style={{display:'flex',flexDirection:'column'}}>
-       <p style={{fontWeight:'600',fontSize:'20px',marginLeft:'40px'}}>Our Mission</p>
-       <p style={{alignItems:'justify-content',marginLeft:'40px',fontWeight:'300'}}>Help middle and small foreign importers to get quality aftermarket products  
-           from professional manufacturers and make their purchase activity smoothly in China</p>
+       <p style={{fontWeight:'600',fontSize:'20px',marginLeft:'40px'}}>Cost-effective, more value for money</p>
+       <p style={{alignItems:'justify-content',marginLeft:'40px',fontWeight:'300'}}>
+        We offer a range of products from our diversified inventory at competitive
+         prices, so you get the most out of your financial resources</p>
       </div>
       </div>
       <div className={nav.mitem}>
       <VerifiedUser style={{height:'70px',width:'70px'}}/>
        {/* <LocalPolice style={{height:'100px',width:'100px'}}/> */}
        <div style={{display:'flex',flexDirection:'column'}}>
-       <p style={{fontWeight:'600',fontSize:'20px',marginLeft:'40px'}}>Our Quality</p>
+       <p style={{fontWeight:'600',fontSize:'20px',marginLeft:'40px'}}>Global, you can rely on!</p>
        <p style={{alignItems:'justify-content',marginLeft:'40px',fontWeight:'300'}}>
-      More than 15 years experience working  together with our suppliers with our strick testing and inspection before shipment, sustain a warranty rate of below 0.5%.</p>
+       We have global outreach and credible partnership with genuine manufacturers so we can deliver you quality products across the globe
+   .</p>
       </div>
       </div>
       <div className={nav.mitem}>
        <Group style={{height:'70px',width:'70px'}}/>
        <div style={{display:'flex',flexDirection:'column'}}>
-       <p style={{fontWeight:'600',fontSize:'20px',marginLeft:'40px'}}>Our Suppliers</p>
-       <p style={{alignItems:'justify-content',marginLeft:'40px',fontWeight:'300'}}>Help middle and small foreign importers to get quality aftermarket products  
-           from professional manufacturers and make their purchase activity smoothly in China </p>
+       <p style={{fontWeight:'600',fontSize:'20px',marginLeft:'40px'}}>Quality, you can trust!</p>
+       <p style={{alignItems:'justify-content',marginLeft:'40px',fontWeight:'300'}}>We thoroughly examine all incoming products and maintain a consistent logistic chain to source quality aftermarket  </p>
       </div>
       </div>
     </div>

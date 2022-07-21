@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 //import ProductItem from "../../../components/ProductItem";
 import SingleProduct from "../components/SingleProduct";
-import { HomeOutlined,Category, Email,Person,Message, FaceTwoTone } from "@material-ui/icons";
+import { HomeOutlined,Category, Email,Person,Message, FaceTwoTone,LocationCity } from "@material-ui/icons";
 import { TextField } from "@material-ui/core";
 
 import IconButton from "@material-ui/core/IconButton";
@@ -42,7 +42,17 @@ return(
         <SideBar/>
         </Mdiv>
           <Ldiv >
+            <div style={{paddingBottom:'20px',paddingLeft:'10px'}}>
+            <h1>Connect With Us, We're here for you!</h1>
+           <p>
+           We love to hear from you! Complete the form below and get in touch with our professional staff for more information about our company, products, and services.
+Complete the form below to get in touch with us!
+
+           </p>
+            </div>
+         
           <Productshow>
+          
           <Div>
               
           </Div>
@@ -71,6 +81,19 @@ return(
             )
           }}
           />
+
+<TextField type='text' placeholder="Country"  
+           className={ft.text}
+          InputProps={{
+            endAdornment: (
+              
+                <IconButton>
+                  <LocationCity style={{marginTop:'0px'}}/>
+                </IconButton>
+            
+            )
+          }}
+          />
            <TextField placeholder="Message"
             className={ft.text}  
             
@@ -86,7 +109,7 @@ return(
 
 
            />
-           <button   className={ft.btn} >Send</button>
+           <button   className={ft.btn} >Submit</button>
           </Ndiv>
          </Productshow>
 </Ldiv>

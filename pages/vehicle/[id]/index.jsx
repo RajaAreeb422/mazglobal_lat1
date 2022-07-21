@@ -146,7 +146,9 @@ const Index = () => {
       </Head>
       <Navbar2/>
       <Navbar/>
-      <Image src='/truck.jpeg' width='100%'/>
+      <Image src='/truck.jpeg' 
+       width="100%" height="30%" layout="responsive"
+      />
       <Container>
       <SideBar/>
         

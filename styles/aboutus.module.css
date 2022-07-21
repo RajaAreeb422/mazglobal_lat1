@@ -1,0 +1,105 @@
+.container{
+    padding:20px;
+    margin-left:10%;
+    margin-right:20%;
+}
+
+.productshow{
+    padding: 20px;
+    flex:2;
+    text-align:justify;
+   
+    margin-bottom: 50px;
+    
+
+}
+.mission{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+    width:80%;
+
+}
+.para{
+    width:30%;
+    text-align:justify;
+    padding:10px;
+    margin-left:9%;
+    margin-top:1%;
+}
+
+.striveBlock{
+    display:flex;
+    flex-direction:row;
+    margin-left:10%;
+      margin-right:20%;
+      padding:20px;
+      width:90%;
+}
+.team{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+.largeView{
+    margin-top:-2%;
+    margin-right:-3%;
+}
+.imgView{
+    width:57%;
+    height:30%;
+}
+
+.btn{
+  width: 24%;
+  border: none;
+  margin-top: 10px;
+  padding: 15px 20px;
+
+  background-image: linear-gradient(to right, red,rgba(67, 143, 173, 0.933));
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 700px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+        margin-right:0;
+        width:auto;
+    }  
+    .largeView{
+        display:none;
+        margin-right: 0;
+    }
+    .productshow{
+        margin:20px;
+        width:100%;
+        flex:4;
+    }
+    .team{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .striveBlock{
+        display:flex;
+        flex-direction:column;
+        
+    
+          
+    }
+    .para{
+        width:80%;
+        text-align:justify;
+        padding-top:10px;
+        
+        margin-top:1%;
+    }
+    .imgView{
+        width:90%;
+        height:30%;
+    }
+}

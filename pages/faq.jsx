@@ -40,97 +40,113 @@ const Faq = () => {
       </div>
         <div style={{ margin: "62px" }}>
           <Productshow>
-            <P
-              style={{
-                fontWeight: "300",
-                fontSize: "28px",
-                marginTop: "-10px",
-                fontFamily: "Montserrat",
-              }}
+           <h1>You Have the Questions, We have theAnswers!</h1>
+           <p>From common car problems to buying advice, we have compiled answers to all the questions that you may have.
+Even if it is not listed here, feel free to connect with us and get your queries resolved within no time!
+</p>
+
+
+            <h3
+             
+            
             >
               F.A.Q
+            </h3>
+
+            <P style={{ fontWeight: "bold" }}>
+              1- 1-	How can I place my order?
+            </P>
+            <P >
+            You can add the product to your cart. Once you’ve finalized your cart products list, you can click “Buy Now” or “Check Out”
             </P>
 
             <P style={{ fontWeight: "bold" }}>
-              1- What if you don not have the part I am looking for?
+              2- 2-	What is the minimum amount of products that I can order?
             </P>
             <P >
-              It iss not an issue if we don not have the part you require. We search
-              thousands of salvage yards for vehicle parts using an inventory
-              locating system. We can utilize this system to look for the part
-              you are looking for, or we can send you to another junkyard that
-              might have it. This service is provided as a convenience to our
-              customers, and it is one of the many characteristics that
-              distinguish us from others.
+              Pending..
             </P>
 
             <P style={{ fontWeight: "bold" }}>
-              2- Are you able to provide parts for both new and old trucks?
+              3- 3-	How long does it take to deliver the order?
             </P>
             <P >
-              Yes, our junkyard has a large variety of trucks. We also have a
-              large selection of vintage vehicle parts.
+              ...
             </P>
 
             <P style={{ fontWeight: "bold" }}>
-              3- Do you test all of your products before they are delivered?
+              4- 4-	How can I track my order?
             </P>
             <P >
-              Yes, we test everything before we ship it.
-            </P>
-
-            <P style={{ fontWeight: "bold" }}>
-              4- what is your estimated delivery time?{" "}
-            </P>
-            <P >
-              After receiving your advance payment, it usually takes 30 to 60
-              days. The delivery time is determined by the goods and amount of
-              your order.
+             ...
             </P>
             <P style={{ fontWeight: "bold" }}>
-              5- What are the most common vehicle parts to be replaced?
+              5- 5-	Can I cancel my order?
             </P>
             <P >
-              Tires, clutches, and brakes are the most often replaced components
-              on heavy-duty vehicles, which should come as no surprise given
-              that they are subjected to the most wear and tear.
+              ...
             </P> 
             <P style={{ fontWeight: "bold" }}>
-              6- What is the difference between original equipment manufacturer
-              (OEM) and aftermarket parts?{" "}
+              6- 6-	What courier service do you use?
             </P>
             <P >
-              OEM stands for Original Equipment Maker, meaning these parts are
-              produced by the cars manufacturer. Non-manufacturer firms, on the
-              other hand, design aftermarket parts. When using aftermarket car
-              parts, make sure they are compatible with your vehicle and that
-              they don not void any warranties or lease agreements you may have on
-              the vehicle.
+              ...
             </P>
             <P style={{ fontWeight: "bold" }}>
-              7- When I am done with my old parts, what should I do with them?
+              7-	From where is my order dispatched?
             </P>
             <P >
-              It is not as simple as tossing old components in the garbage. If
-              you need to get rid of outdated or damaged parts, you can sell
-              them to a parts dealer or shop, sell them for scrap metal, or
-              recycle them if all else fails.
+              ...
             </P>
 
             <P style={{ fontWeight: "bold" }}>
-              8- Why is it necessary to analyze components?{" "}
+               8-	What if I can’t see the product I Want to order?
             </P>
             <P >
-              To ensure that the material, as well as the join, can withstand
-              the forces in such an impact, it is critical to determine the
-              material is strength. Other fabrics in automobiles are put through
-              rigorous testing to assure their long-term durability.{" "}
+             ...
             </P>
             <P style={{ fontWeight: "bold" }}>
-            9-	Is there a warranty on auto parts?{" "}
+            9-	9-	Are your products genuine?
             </P>
             <P >
-            Unless otherwise noted on your receipt, we offer a one-year part replacement warranty.{" "}
+            Yes, we ensure that the products we supply to our customers are genuine, and we offer a money back guarantee if it is proved that the parts delivered are not genuine
+            </P>
+            <P style={{ fontWeight: "bold" }}>
+            10-	Is there any additional GST?
+            </P>
+            <P >
+            ...
+            </P>
+            
+            <P style={{ fontWeight: "bold" }}>
+            11-	Can I change my delivery destination once the order is dispatched?
+            </P>
+            <P >
+            ...
+            </P>
+            <P style={{ fontWeight: "bold" }}>
+            12-	What is the return policy?
+            </P>
+            <P >
+            ...
+            </P>
+            <P style={{ fontWeight: "bold" }}>
+            13-	Is there any refund policy?
+            </P>
+            <P >
+            ...
+            </P>
+            <P style={{ fontWeight: "bold" }}>
+            14-	What payment methods do you offer?
+            </P>
+            <P >
+            ...
+            </P>
+            <P style={{ fontWeight: "bold" }}>
+            15-	What is the scope of your delivery?
+            </P>
+            <P >
+            ...
             </P>
           </Productshow>
         </div>
