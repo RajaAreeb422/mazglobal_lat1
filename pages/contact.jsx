@@ -43,7 +43,7 @@ return(
         </Mdiv>
           <Ldiv >
             <div style={{paddingBottom:'20px',paddingLeft:'10px'}}>
-            <h1>Connect With Us, We're here for you!</h1>
+            <h1>Connect With Us, We are here for you!</h1>
            <p>
            We love to hear from you! Complete the form below and get in touch with our professional staff for more information about our company, products, and services.
 Complete the form below to get in touch with us!
