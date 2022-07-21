@@ -152,7 +152,7 @@ const About = () => {
       <Navbar2 />
       <Navbar />
       <Image src='/truck.jpeg' 
-       width="100%" height="40%" layout="responsive"
+       width="100%" height="50%" layout="responsive"
        
       />
       
