@@ -60,7 +60,6 @@ const ASlide = (props) => {
                   <h5 style={{ marginLeft:'10px',fontSize:'16px',fontWeight:'320' }}>{it.name}</h5>
                   <p style={{ marginLeft:'10px',color:'grey' }}>Incl. VAT : <strong>{it.regular_price}Rs</strong></p>
                   </div>
-              
               </Link>
             
               ))}
