@@ -51,11 +51,11 @@
 }
 
 .btn{
-  width: 24%;
+  width: 30%;
   border: none;
   margin-top: 10px;
   padding: 15px 20px;
-
+  text-align: center;
   background-image: linear-gradient(to right, red,rgba(67, 143, 173, 0.933));
   color: white;
   cursor: pointer;
@@ -101,5 +101,10 @@
     .imgView{
         width:90%;
         height:30%;
+    }
+
+    .btn{
+        width:100%;
+        text-align: center;
     }
 }

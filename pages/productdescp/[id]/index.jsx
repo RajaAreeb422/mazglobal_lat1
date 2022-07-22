@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
 //import { addProduct } from '../../../components/redux/action';
 import { useRouter } from "next/router";
 import React, { memo } from "react";
-
+import Image from "next/image";
 //import { sliderItems } from "../../../data";
 //import { useLocation } from "react-router";
 // import { publicRequest } from "../requestMethods";
@@ -287,13 +287,13 @@ const ProductDesp = () => {
       <Navbar2 />
       <Navbar />
       <Image src='/truck.jpeg' 
-       width="100%" height="30%" layout="responsive"
+       width="100%" height="30%" layout='responsive'
       />
       <Container>
         <SideBar />
         <ProductShow>
           <ImgDescp>
-            <Image src={path} width="100%" height="600px" />
+            <Img src={path} width="100%" height="600px" />
             
             <Desc>
               <p
@@ -796,7 +796,7 @@ const ImgContainer = styled.div`
   flex: 1;
 `;
 
-const Image = styled.img`
+const Img = styled.img`
   width: 500px;
 
   object-fit: fill;
